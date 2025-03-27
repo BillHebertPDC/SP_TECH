@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="campo01" placeholder="NOTA Continuada">
+    <input type="text" id="campo02" placeholder="NOTA Pesquisa e Inovação">
+    <input type="text" id="campo03" placeholder="Nome">
+    <button id="mult" onclick="mult()">CALCULAR</button>
+
+</body>
+<script>
+    var camp01 = Number(campo01.value)
+    var camp02 = Number(campo02.value)
+    function normalizar(){
+        camp01 = Number(campo01.value)
+        camp02 = Number(campo02.value)
+    }
+    function mult(){
+        normalizar()
+        alert(`
+        A média de ${campo03.value} será de ${(camp01*0.4) + (camp02*0.6)}
+        `)
+    }
+
+</script>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="var1" placeholder="homens">
+    <input type="number" id="var2" placeholder="mulheres">
+    <button onclick="func()">Analisar peso</button>
+    <div id="conteudo"></div>
+</body>
+    <script>
+        function func() {
+            let calc_h = Number(var1.value) * 80
+            let calc_m = Number(var2.value) * 60
+            conteudo.innerHTML = `
+            Este elevador suporta 800 Kg e o peso estimado desta lotação é de ${calc_h + calc_m}kg<br>
+            ${calc_h + calc_m >800 ?(`<div style = "color: blue;">Será necessário que alguém desça para que o elevador se movimente</div>`):""}
+            `
+        }
+    </script>
+</html>

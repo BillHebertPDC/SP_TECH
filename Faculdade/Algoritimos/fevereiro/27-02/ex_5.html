@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" placeholder="peso" id="var1">
+    <button onclick="cal()">Avaliação de Peso Infantil</button>
+    <div id="conteudo"></div>
+</body>
+<script>
+    function cal(){
+        var renda = var1.value
+        var text;
+        if(renda <= 13.5)
+            text="Abaixo do peso"
+        else if(renda>=21.2)
+            text="Acima do peso"
+        else if(renda>=13.5 && renda <= 21.2)
+            text="Peso na média"
+        else if(renda== 18.3)
+            text="Peso perfeito"
+        alert(text)
+    }
+</script>
+</html>

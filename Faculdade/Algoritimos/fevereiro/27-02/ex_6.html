@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Qual time de São Paulo você torce?</h1>
+
+    <select id="timeSelect">
+        <option value="" disabled selected>Selecione...</option>
+        <option value="corinthians">Corinthians</option>
+        <option value="palmeiras">Palmeiras</option>
+        <option value="santos">Santos</option>
+        <option value="sao-paulo">São Paulo</option>
+    </select>
+
+    <button onclick="msg()">Fale sobre esse time</button>
+
+    <div id="mensagem"></div>
+
+</body>
+    <script>
+        function msg() {
+            const time = timeSelect.value;
+            if (time === "corinthians") {
+                mensagem.textContent = "Salve o Corinthians";
+                mensagem.style.backgroundColor = "black";
+                mensagem.style.color = "white";
+            } else if (time === "palmeiras") {
+                mensagem.textContent = "Salve o alviverde imponente";
+                mensagem.style.backgroundColor = "green";
+                mensagem.style.color = "white";
+            } else if (time === "santos") {
+                mensagem.textContent = "Agora quem dá a bola é o Santos";
+                mensagem.style.backgroundColor = "white";
+                mensagem.style.color = "black";
+            } else if (time === "sao-paulo") {
+                mensagem.textContent = "Salve o Tricolor paulista";
+                mensagem.style.backgroundColor = "black";
+                mensagem.style.color = "red";
+            } else {
+                mensagem.textContent = "";
+            }
+        }
+    </script>
+</html>

@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", system-ui, sans-serif;
+  }
+  
+  :root {
+    --primary: #0056b3;
+    --secondary: #00a8e8;
+    --dark: #343a40;
+    --light: #f8f9fa;
+    --success: #28a745;
+    --danger: #dc3545;
+    --warning: #ffc107;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+  }
+  
+  body {
+    line-height: 1.6;
+    color: #333;
+    background: #f4f7f9;
+  }
+  
+  /* Layout Base */
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .flex {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .grid {
+    display: grid;
+    gap: 30px;
+  }
+  
+  /* Componentes Comuns */
+  .card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+  }
+  
+  .btn {
+    padding: 12px 24px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  /* Header */
+  header {
+    background: white;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+  }
+  
+  nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+  }
+  
+  nav a {
+    color: var(--dark);
+    padding: 8px 15px;
+    border-radius: 4px;
+  }
+  
+  nav a.active, nav a:hover {
+    color: var(--primary);
+    background: rgba(0,86,179,0.1);
+  }
+  
+  /* Seções Principais */
+  .hero, .features, .benefits, section {
+    padding: 70px 0;
+  }
+  
+  .hero {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+  }
+  
+  .features {
+    background: white;
+  }
+  
+  /* Cards Específicos */
+  .feature-card {
+    text-align: center;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+  }
+  
+  /* Dashboard */
+  .dashboard-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  .status-card {
+    background: white;
+    padding: 20px;
+  }
+  
+  .chart-container {
+    height: 250px;
+    position: relative;
+  }
+  
+  /* Formulários */
+  form {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 10px 0;
+  }
+  
+  /* Footer */
+  footer {
+    background: var(--dark);
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .flex { flex-direction: column; }
+    .grid { grid-template-columns: 1fr; }
+    nav ul { flex-wrap: wrap; justify-content: center; }
+    section { padding: 40px 0; }
+  }
+  
+  @media (hover: hover) {
+    .btn:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+  }

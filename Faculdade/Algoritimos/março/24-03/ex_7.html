@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" placeholder="numero" id="numero"></input>
+    <button onclick="calc()">Viva o 7!</button>
+    <div id="resposta"></div>
+</body>
+<script>
+    function calc(params) {
+        resposta.innerHTML =``
+        if(numero.value >=0 && numero.value <= 200){
+            for(let i=0;i<=numero.value ;i++)
+                resposta.innerHTML +=`${7*i}<br>`
+        }
+    }
+</script>
+</html>

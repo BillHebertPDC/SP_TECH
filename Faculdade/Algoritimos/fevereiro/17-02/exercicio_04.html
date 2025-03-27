@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="var1"placeholder="valor pizza">
+    <input type="number" id="var2"placeholder="quant. amigos">
+    <button onclick="calc()">Rola a pizza?</button>
+    <div id="conteudo"></div>
+    <label id="label" style="color: red; font-weight: bold; font-style: italic; display: none;">></label>
+</body>
+<script>
+    function calc() {
+        let media = Number(eval(`(${var1.value}/ ${var2.value})`))
+        conteudo.innerHTML=`Cada amigo vai pagar R$${media} pela pizza`
+        if(media > 20){
+            label.value = "Deu ruim! Pizza muito cara!"
+            label.textContent = label.value
+            //label.innerHTML = label.value
+            label.style.display="flex"
+        }else{
+            label.style.display="none"
+        }
+    }
+</script>
+</html>

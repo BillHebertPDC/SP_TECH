@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/JS/script.js"></script>
+
+    <title>Calculadora</title>
+
+</head>
+
+<body>
+    <main id="container">
+        <div id="calculator">
+            <h2>Calculadora Prejuízo Evitado</h2>
+            <div id="input_box">
+                <div class="input-field">
+                    <label for="ipt_preco">Preço do Kg da carne:</label>
+                    <input type="number" id="ipt_preco">
+                </div>
+                <div class="input-field">
+                    <label for="ipt_quantidade">Quantidade de carne fornecida em um mês (Kg):</label>
+                    <input type="number" id="ipt_quantidade">
+
+                </div>
+                <div class="input-field">
+                    <label for="ipt_dia">Em quantos meses deseja calcular o prejuízo evitado:</label>
+                    <input type="number" id="ipt_dia">
+
+                </div>
+            </div>
+
+            <div id="div_resultado">Você evitará prejuízo de:<br>R$0,00</div>
+            <button onclick="calcular()">Calcular</button>
+
+        </div>
+
+    </main>
+
+
+</body>
+
+
+</html>

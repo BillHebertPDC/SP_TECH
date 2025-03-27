@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="campo01" placeholder="Numero 1">
+    <input type="text" id="campo02" placeholder="Numero 2">
+    <button id="operacao1" onclick="soma()">Soma</button>
+    <button id="operacao2" onclick="diferenca()">Diferença</button>
+    <button id="operacao3" onclick="produto()">Produto</button>
+    <button id="operacao4" onclick="razao()">Razão</button>
+</body>
+<script>
+    var camp01 = Number(campo01.value)
+    var camp02 = Number(campo02.value)
+    function normalizar(){
+        camp01 = Number(campo01.value)
+        camp02 = Number(campo02.value)
+    }
+    function soma(){
+        normalizar()
+        alert(`A soma entre ${camp01} e ${camp02} é ${camp01 + camp02}`)
+    }
+    function diferenca(){
+        normalizar()
+        alert(`A diferença entre ${camp01} e ${camp02} é ${camp01%camp02}`)
+    }
+    function razao(){
+        normalizar()
+        alert(`A razão entre ${camp01} e ${camp02} é ${camp01/camp02}`)
+    }
+    function produto(){
+        normalizar()
+        alert(`O produto entre ${camp01} e ${camp02} é ${camp01*camp02}`)
+    }
+</script>
+</html>

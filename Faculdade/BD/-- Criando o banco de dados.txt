@@ -1,0 +1,70 @@
+-- Criando o banco de dados
+create database sptech;
+
+-- Definindo o banco de dados a ser utilizado
+USE sptech;
+
+-- Criando a tabela 'curso'
+create table curso (
+	id_curso int not null primary key,
+	nome     varchar(10) not null
+);
+
+-- Inserindo registros na tabela 'curso'
+insert into curso (id_curso, nome) values (1, 'CCO');
+insert into curso (id_curso, nome) values (2, 'ADS');
+
+-- Selecionando todos os registros da tabela 'curso'
+select * from curso;
+
+-- Tentativa de inserção inválida: o campo 'nome' não pode ser nulo devido à restrição NOT NULL
+insert into curso (id_curso, nome) values (3, null);
+
+-- Criando a tabela 'empresa'
+create table empresa (
+	id_empresa int not null primary key,
+	nome     varchar(50) not null,
+    representante varchar(50) not null
+);
+
+-- Inserindo registros na tabela 'empresa'
+insert into empresa(id_empresa, nome, representante) values (100, 'Bradesco', 'Sofia');
+insert into empresa(id_empresa, nome, representante) values (200,'Fleury', 'Marcos');
+insert into empresa(id_empresa, nome, representante) values (300,'Tivti', 'Jorge');
+insert into empresa(id_empresa, nome, representante) values (400, 'Itau', 'Raquel');
+insert into empresa(id_empresa, nome, representante) values (500, 'Cxp', 'Murilo');
+
+-- Criando a tabela 'periodo'
+create table periodo (
+	id_periodo int not null primary key,
+	periodo     varchar(10) not null
+);
+
+-- Inserindo registros na tabela 'periodo' utilizando um único comando INSERT para múltiplos valores
+insert into periodo (id_periodo, periodo)
+values (1000, '2025/1'),
+	   (2000, '2024/1'),
+       (3000, '2023/1');
+       
+-- Criando a tabela 'aluno'       
+create table aluno (
+	ra int not null primary key,
+    nome   varchar(50) not null,
+	id_periodo int not null,
+	email   varchar(100) not null,
+	id_empresa int,
+    id_curso int
+);
+
+-- Inserindo registros na tabela 'aluno' sem especificar os nomes das colunas (ordem deve ser respeitada)
+insert into aluno 
+values (421151,'Igor',1000,'igor@sptech',100,1),
+       (41251077,'Pedro',1000,'pedro@sptech',200,1),
+       (4251131,'Munir',1000,'munir@sptech',300,1),
+       (4251027,'Guilherme',2000,'guilherme@sptech',100,2),
+       (4251039,'Rafael',2000,'rafael@sptech',400,2),
+       (425152052,'Isabelly',3000,'isabelly@sptech',500,2);
+
+-- Tentativa de inserção inválida: a chave primária 'ra' exige um valor inteiro, mas um tipo inválido foi inserido
+insert into aluno  values
+(xxxxxx,'Marcelo',5000,'marcelo@sptech',800,6);

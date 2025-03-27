@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="var1" placeholder="temperatura">
+    <button onclick="cal()">Analisar clima</button>
+</body>
+<script>
+    function cal(){
+        alert((var1.value >=21 && var1.value <=24 ) ? `Temperatura boa`:`Alerta de desconforto!`)
+        (var1.value >24 ? (alert("As pessoas vão derreter")) : (var1.value < 21 ? (alert("As pessoas vão ter hipotermia")) :""))
+    }
+</script>
+</html>

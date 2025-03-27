@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="var1" placeholder="login ">
+    <input type="password" id="var2" placeholder="senha ">
+    <button onclick="login()">Entrar</button>
+    <div id="conteudo"></div>
+</body>
+<script>
+    function login(){
+        alert( var1.value == "SPTech" && var2.value == "digital"?(`Usuário autenticado com sucesso`):("Falha na autenticação"))
+    }
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="var1" placeholder="Escolha de 1 a 4"><button onclick="cal()">Verificar</button>
+</body>
+<script>
+
+    function cal(){
+
+        /*
+        var validade= 0
+        if(var1.value > 0){
+            if(var1.value > 4)
+                validade = 1
+        }
+        else
+            validade = 1
+        if(validade == 1)
+            alert("Valor Invalido")
+        else
+            alert(`Você aplicará a opção de ${var1.value}0% de desconto`)
+
+        /*
+        var text =""
+        if(var1.value >0 )
+            if(var1.value > 4)
+                text = "Valor Invalido"
+            else
+                text = `Você aplicará a opção de ${var1.value}0% de desconto`
+        else
+            text = "Valor Invalido"
+        alert(text)
+
+
+        /*
+        */
+       var valor = var1.value
+       alert(valor > 4 || valor < 1 ?("Valor Invalido"):(`Você aplicará a opção de ${valor}0% de desconto`))
+    }
+</script>
+</html>

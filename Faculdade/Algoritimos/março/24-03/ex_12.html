@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" placeholder="quantas pessoas" id="qtd"></input>
+    <button onclick="cal()">#Partiu Carona</button>
+    <div id="resposta"></div>
+</body>
+<script>
+    function cal(){
+        let retorno=""
+        for(let i=0;i<qtd.value;i++){
+            retorno +=(i<=5?`Entrou o ${i}º passageiro ${(i==1?"(que é o(a) motorista)":"")}`:`O ${i}º passageiro terá que esperar!`)
+        }
+        resposta.innerHTML=retorno
+    }
+</script>
+</html>

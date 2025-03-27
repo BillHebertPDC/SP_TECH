@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="var1" placeholder="renda familiar">
+    <input type="number" id="var2" placeholder="prestação ">
+    <button onclick="func()">Verificar financiamento</button>
+    <div id="conteudo"></div>
+    <label id="label" style="color: red; font-weight: bold; font-style: italic; display: none;">Será necessário complementar a renda familiar</label>
+</body>
+    <script>
+        function func() {
+            conteudo.innerHTML = `A prestação corresponde a ${(var2.value/var1.value)*100}% da renda familiar`
+            if(((var2.value/var1.value)*100)>30){
+                label.style.display="flex"
+            }
+        }
+    </script>
+</html>

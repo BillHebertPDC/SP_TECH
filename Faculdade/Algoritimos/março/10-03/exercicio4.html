@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="var1" placeholder="informar a hora ">
+    <button onclick="cal()">Ver recomendação</button>
+    <div id="conteudo"></div>
+</body>
+<script>
+    function cal(){
+        alert( var1.value >=19 && var1.value <=21 ?(`Não é recomendável que você assista sua série favorita no horário ${var1.value}!`):(`O horário ${var1.value} é adequado para assistir sua série favorita!`) )
+    }
+</script>
+</html>

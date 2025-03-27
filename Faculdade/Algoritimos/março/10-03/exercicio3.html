@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="var1" placeholder="nota de um aluno  ">
+    <button onclick="cal()">Avaliar aluno</button>
+    <div id="conteudo"></div>
+</body>
+<script>
+    function cal(){
+        alert( var1.value >=0 && var1.value <=10 ?("Nota válida!"):("Onde já se viu nota menor que 0 e maior que 10?!") )
+    }
+</script>
+</html>

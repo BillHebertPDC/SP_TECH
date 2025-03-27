@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" placeholder="Coca-Cola já bebeu na vida" id="qtd"></input>
+    <button onclick="cal()">Ver a quantidade</button>
+    <div id="resposta"></div>
+</body>
+<script>
+    function cal(){
+        let retorno=""
+        for(let i=0;i<qtd.value;i++)
+            retorno +=`Coca-Cola `
+        resposta.innerHTML=retorno
+    }
+</script>
+</html>

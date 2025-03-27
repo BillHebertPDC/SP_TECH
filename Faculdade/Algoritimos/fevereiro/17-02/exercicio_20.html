@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="var1" placeholder="homens">
+    <input type="number" id="var2" placeholder="mulheres">
+    <button onclick="func()">Ligar elevador</button>
+    <div id="conteudo"></div>
+</body>
+    <script>
+        function func() {
+            let calc_h = Number(var1.value) * 90
+            let calc_m = Number(var2.value) * 70;
+            conteudo.innerHTML = `Este elevador suporta 800 Kg e o peso estimado desta lotação é de ${calc_h + calc_m}kg<br>`
+            if((calc_h + calc_m)>500){
+                conteudo.innerHTML += `${calc_h + calc_m >500 ?(`<div style = "color: red;">Alguém precisa descer. Precisa perder ${(calc_h+calc_m)-500}kg para mover o elevador</div>`):""} `
+            }
+        }
+    </script>
+</html>

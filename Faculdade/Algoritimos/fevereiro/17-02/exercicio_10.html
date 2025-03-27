@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <input type="number" id="var2"placeholder="saldo na conta">
+     <button onclick="cal()">Verificar finanças</button>
+     <div id="conteudo"></div>
+</body>
+<script>
+    function cal() {
+        var saldo = Number(var2.value)
+        conteudo.innerHTML =`${saldo == 0 ?("Conta zerada"):(saldo <0 ?("Está devendo!"):(saldo>0 ? ("Saldo positivo! sorriso"):"") )}`
+    }
+</script>
+</html>

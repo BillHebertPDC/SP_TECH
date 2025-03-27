@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="int"placeholder="latinhas de refrigerante por dia">
+    <button onclick="calc()">Quantos refris</button>
+    <div id="conteudo"></div>
+</body>
+<script>
+    function calc() {
+        let ano = int.value * 365
+        conteudo.innerHTML = `
+        quantidade de latinhas por ano ${ano}<br>
+        ${ano >= 500 ?("Cuidado com a diabetes!"):("")}
+        `
+    }
+</script>
+</html>

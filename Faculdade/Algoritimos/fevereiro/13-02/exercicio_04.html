@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="campo01" placeholder="Nome do guerreiro">
+    <input type="number" id="campo02" placeholder="quant. KI">
+    <button id="mult" onclick="ki()">Ver ki em cada forma</button>
+</body>
+<script>
+    var camp01 = campo01.value
+    var camp02 = Number(campo02.value)
+    function normalizar(){
+        camp01 = campo01.value
+        camp02 = Number(campo02.value)
+    }
+    function ki(){
+        normalizar()
+        alert(`
+        O ki de ${camp01} na forma Super Sayajin é ${camp02*50}
+        O ki de ${camp01} na forma Super Sayajin 2 é ${camp02*100}
+        `)
+    }
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="var1"placeholder="frequência do aluno" type="number"></input>
+    <div id="cont"></div>
+    <button onclick="cal()">Analisar frequência</button>
+    <br>
+    <img src="https://media.istockphoto.com/id/165599940/es/vector/bolsas.jpg?s=2048x2048&w=is&k=20&c=mUmO8B7ygit0tcWVAkFzI28UfJDEhJkXakNpIuYmuXI="  style="display:none;" id="img1">
+    <img src="https://jornadaedu.com.br/wp-content/uploads/2022/05/cover-aluno-protagonista.png" style="display:none;" id="img2">
+</body>
+<script>
+    function cal() {
+        img1.style="display:none"
+        img2.style="display:none"
+        if(var1.value>50){
+            img2.style="block"
+        }else{
+            img1.style="block"
+        }
+    }
+</script>
+</html>

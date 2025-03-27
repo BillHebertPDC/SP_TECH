@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <input type="number" id="var2"placeholder="peso total elevador">
+     <button onclick="cal()">Ligar elevador</button>
+     <div id="conteudo"></div>
+</body>
+<script>
+    function cal() {
+        var peso = Number(var2.value)
+        alert(`${peso <500 ?("Elevador vai se mover"):("Alguém precisa descer do elevador")}`)
+    }
+</script>
+</html>

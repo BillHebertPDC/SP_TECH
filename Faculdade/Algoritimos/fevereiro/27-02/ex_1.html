@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" placeholder="altura do usuário" id="var1">
+    <button onclick="cal()">Analisar Estatura</button>
+    <div id="conteudo"></div>
+</body>
+<script>
+    function cal(){
+        alert(var1.value <= 1.65 ?("Você pode ser piloto de corrid"):(var1.value > 1.65 && var1.value < 1.8 ?("Você pode ser jogador de futebol"):("Você pode ser jogador de vôlei ou basquete")))
+    }
+</script>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="var1"placeholder="KWh consumida no mês">
+    <button onclick="calc()">Calcular conta de luz</button>
+</body>
+<script>
+    function calc() {
+        alert(`valor da conta a ser pago é ${(var1.value>100 ?((var1.value * 0.9).toFixed(2)):(var1.value))}`)
+    }
+</script>
+</html>

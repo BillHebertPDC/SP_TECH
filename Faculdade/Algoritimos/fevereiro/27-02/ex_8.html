@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculadora de Economia</h1>
+
+    <label for="meta">Qual é sua meta de economia?</label>
+    <input type="number" id="meta" min="0"><br><br>
+
+    <label for="guardado">Quanto você já tem guardado?</label>
+    <input type="number" id="guardado" min="0"><br><br>
+
+    <button onclick="analisarEconomia()">Analisar economia</button>
+
+    <div id="mensagem" style="margin-top: 20px; font-weight: bold;"></div>
+
+</body>
+    <script>
+        function analisarEconomia() {
+            const metas = Number(meta.value);
+            const guardados = Number(guardado.value);
+            if (guardados >= metas) {
+                const diferenca = guardados - metas;
+                mensagem.textContent = "Parabéns, metas alcançada!";
+                if (diferenca > 0) {
+                    mensagem.textContent += ` Metas ultrapassada em ${diferenca}!`;
+                }
+                mensagem.style.color = "green";
+            } else {
+                const falta = metas - guardados;
+                mensagem.textContent = `Força! Ainda em busca da metas! Falta ${falta}.`;
+                mensagem.style.color = "orange";
+            }
+        }
+    </script>
+</html>

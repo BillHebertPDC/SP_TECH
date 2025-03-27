@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora </title>
+    <link rel="stylesheet" href="Calc.css">
+</head>
+<body>
+    <div style="width: 450px;height:auto;">   
+       <h2>Quantidade de toneladas por Mês</h2>  
+        <input id="ipt_volume" value="0">
+
+        <h2>Kg da carne</h2>
+        <input id="ipt_preco" value="0"> <br>
+
+        <h2>quantidade de meses de prejuizo</h2>
+        <input id="ipt_meses" value="0"> <br>
+        <button style="width: 100%; height: 50px;" onclick="calc()">Calcule Aqui</button>
+    </div>
+    <div id="result" style="padding: 0px; width: 500px; height: auto; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: large; color: white;">
+    </div>
+            
+</body>
+<script>
+function calc(){
+
+var volume = parseFloat(ipt_volume.value * 1000)
+var carnePerdida = volume * 0.20
+var agua = (carnePerdida/1000) * 15.5
+var preco = parseFloat(ipt_preco.value)
+var prejuizo = (carnePerdida * preco) * ipt_meses.value  
+var resultado = `
+    <div style="display: flex;padding: 10px;width: 90%; ">
+        <div style="width: 200px;height: 10px;padding: 0px; height: 30px; display: flex;justify-content: center; align-items: center;">Gasto com carne</div>
+        <div style="width: 200px;height: 10px;padding: 0px; height: 30px; display: flex;justify-content: center; align-items: center;">R$${preco * volume }</div>
+    </div>
+    <div style="display: flex;padding: 10px;width: 90%;">
+        <div style="width: 200px;height: 10px;padding: 0px; height: 30px; display: flex;justify-content: center; align-items: center;">Perdas Kg/Mês</div>
+        <div style="width: 200px;height: 10px;padding: 0px; height: 30px; display: flex;justify-content: center; align-items: center;">${carnePerdida    }</div>
+    </div>
+    <div style="display: flex;padding: 10px;width: 90%;">
+        <div style="width: 200px;height: 10px;padding: 0px; height: 30px; display: flex;justify-content: center; align-items: center;">Prejuizo Total</div>
+        <div style="width: 200px;height: 10px;padding: 0px; height: 30px; display: flex;justify-content: center; align-items: center;">R$${prejuizo} em ${ipt_meses.value}  Mês</div>
+    </div>
+    <div style="display: flex;padding: 10px;width: 90%;">
+        <div style="width: 200px;height: 10px;padding: 0px; height: 30px; display: flex;justify-content: center; align-items: center;">Toneladas de agua</div>
+        <div style="width: 200px;height: 10px;padding: 0px; height: 30px; display: flex;justify-content: center; align-items: center;">${agua} Ton</div>
+    </div>
+`
+result.innerHTML = resultado
+
+}
+
+
+</script>
+</html>

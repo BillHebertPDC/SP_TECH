@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="nota1"placeholder="inserir nota 1">
+    <input type="number" id="nota2"placeholder="inserir nota 2">
+    <input type="number" id="nota3"placeholder="inserir nota 3">
+    <button onclick="calc()">Analisar desempenho</button>
+    <div id="conteudo"></div>
+</body>
+<script>
+    function calc() {
+        let media = Number(eval(`(${nota1.value} + ${nota2.value} + ${nota3.value}) / 3`))
+        conteudo.innerHTML = `Sua média foi de ${media}`
+        if(media>9.4){
+            conteudo.innerHTML += `<br>Parabéns, você é fora de série!`
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <input type="text" id="var1"placeholder="temperatura">
+     <button onclick="cal()">Verificar clima</button>
+     <br>
+     <img src="https://static1.minhavida.com.br/articles/59/12/a7/14/gettyimages-1268330880-article-1.jpg"  style="display:none;" id="img1">
+     <img src="https://www.paho.org/sites/default/files/alimentacao-saudavel-diversificada.jpg" style="display:none;" id="img2">
+     <div id="conteudo"></div>
+</body>
+<script>
+    function cal() {
+        img1.style="display:none"
+        img2.style="display:none"
+        if(var1.value<10){
+            img2.style="block"
+        }else{
+            img1.style="block"
+        }
+    }
+</script>
+</html>

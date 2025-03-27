@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="temperatura" id="var1">
+    <input type="text" placeholder="umidade" id="var2">
+    <button onclick="autenticar()">autenticar</button>
+    <div id="resposta"></div>
+</body>
+<script>
+    function autenticar(){
+        (umidade.value < 0 || umidade.value > 100) ? ()=>{
+            alert("Invalido");
+            resposta.innerHTML=""
+        }: ((temperatura.value >= 22 || temperatura.value <= 23) ? (resposta.innerHTML="Clima agradável") : (resposta.innerHTML="Clima desconfortável"))
+    }
+    </script>
+</html>

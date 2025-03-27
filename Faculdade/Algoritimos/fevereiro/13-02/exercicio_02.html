@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="campo01" placeholder="Valor das Pizzas">
+    <input type="number" id="campo02" placeholder="Quant. amigos">
+    <button id="mult" onclick="DIV()">#lovePizza</button>
+</body>
+<script>
+    var camp01 = Number(campo01.value)
+    var camp02 = Number(campo02.value)
+    function normalizar(){
+        camp01 = Number(campo01.value)
+        camp02 = Number(campo02.value)
+    }
+    function DIV(){
+        normalizar()
+        alert(`Cada um dos ${camp02} amigos vai pagar R$: ${camp01 / camp02} `)
+    }
+</script>
+</html>

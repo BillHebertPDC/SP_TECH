@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="var1" placeholder="quantidade de passagens">
+    <button onclick="cal()">Comprar</button>
+    <div id="conteudo"></div>
+</body>
+<script>
+    function cal(){
+        if(var1.value >= 8 && var1.value <= 50){
+            var desconto = 0;
+            if(var1.value <= 19){
+                desconto = 0.97
+            }else if(var1.value <= 49){
+                desconto = 0.95
+            }else{
+                desconto = 0.93
+            }
+            conteudo.innerHTML =`Total a pagar: R$${(var1.value*4.4) * desconto}`
+        } else{
+            alert("Quantidade inválida para o Fidelidade!")
+        }
+    }
+</script>
+</html>

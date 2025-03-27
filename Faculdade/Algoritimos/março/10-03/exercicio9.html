@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="min" placeholder="altura min.">
+    <input type="number" id="max" placeholder="altura max.">
+    <input type="text" id="nome" placeholder="nome candidato">
+    <input type="number" id="altura" placeholder="altura candidato">
+    <button onclick="cal()">Verificar Candidato</button>
+    <div id="conteudo"></div>
+</body>
+<script>
+    function cal(){
+        var validade = min.value < 1 || min.value>max.value
+        if(validade == false){
+            conteudo.innerHTML +=`<br>
+            ${altura.value <= max.value && altura.value >= min.value ?
+            (`O candidato ${nome.value}, com altura de ${altura.value} metros, participará do processo de seleção de piloto”, caso a altura do candidato esteja no intervalo informado.`):
+            (`Infelizmente, o candidato ${nome.value}, com altura de ${altura.value} metros, não atende os requisitos da seleção`)}`
+        }else{
+            alert("Intervalo da altura de seleção é inválida! A altura inicial deve ser maior que 1 e a altura final deve ser maior que a altura inicial")
+        }
+
+    }
+</script>
+</html>

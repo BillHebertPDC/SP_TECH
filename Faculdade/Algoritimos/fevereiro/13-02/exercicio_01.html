@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="campo01">
+    <button id="mult" onclick="homen()">Aposentadoria Homem</button>
+    <button id="div" onclick="mulher()">Aposentadoria Mulher</button>
+</body>
+<script>
+    var camp01 = Number(campo01.value)
+    var camp02 = Number(campo02.value)
+    function normalizar(){
+        camp01 = Number(campo01.value)
+    }
+    function homen(){
+        normalizar()
+        alert(`Falta ${70-camp01}`)
+    }
+    function mulher(){
+        normalizar()
+        alert(`Multiplicação: ${60-camp01}`)
+    }
+</script>
+</html>

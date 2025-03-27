@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Impacto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body.dark-mode {
+            background: #1e1e1e;
+            color: white;
+        }
+
+        body.light-mode {
+            background: #f4f4f4;
+            color: black;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 30px;
+            max-width: 1100px;
+            width: 90%;
+            margin: 50px auto;
+            border-radius: 12px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .inputs-container, .result-container {
+            width: 45%;
+        }
+
+        .inputs-container {
+            background: #2b2b2b;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        body.light-mode .inputs-container {
+            background: white;
+            color: black;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            border: 2px solid #d4af37;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            background: #333;
+            color: white;
+        }
+
+        body.light-mode input {
+            background: #fff;
+            color: black;
+            border: 2px solid #555;
+        }
+
+        button {
+            
+            width: 50%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            background: #d4af37;
+            color: black;
+            font-weight: bold;
+            transition: 0.3s;
+            align-self: center;
+            margin: 10px 25% 10px 25%;
+        }
+
+        button:hover {
+            background: #b9972b;
+        }
+
+        .result-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: left;
+        }
+
+        body.light-mode .result-container {
+            background: white;
+            color: black;
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <button id="tema" onclick="toggleTheme()">🌗 Alternar Tema</button>
+    
+    <div class="container">
+        <div class="inputs-container">
+            <h2>Simulador de Impacto</h2> 
+
+            <label>Volume de Carne Transportado (toneladas/mês):</label>
+            <input id="ipt_volumeCarne" type="number" min="1" value="100"><br>
+            
+            <label>Valor Médio da Carne (R$/kg):</label>
+            <input id="Preco_carne" type="number" min="1" value="25"><br>
+            
+            <label>Taxa Atual de Perdas (% ano):</label>
+            <input id="taxa_perda" type="number" min="0" max="100" value="15"><br>
+            
+            <label>Quantidade de Unidades de Transporte:</label>
+            <input id="ipt_unidadesTransporte" type="number" value="10"><br>
+            
+            <button onclick="calcularImpacto()">Calcular Impacto</button>
+        </div>
+
+        <div class="result-container" id="resultado"></div>
+    </div>
+</body>
+<script>
+    function toggleTheme() {
+        document.body.classList.toggle("light-mode");
+    }
+
+    function calcularImpacto() {
+        var volume = Number(ipt_volumeCarne.value);
+        var unidades = Number(ipt_unidadesTransporte.value);
+        var precoCarne = Number(Preco_carne.value);
+        var taxa_perdas = (Number(taxa_perda.value) / 12) / 100;
+
+        if (volume <= 0 || unidades <= 0) {
+            resultado.innerHTML = "<p style='color:red;'>Por favor, preencha todos os campos corretamente.</p>";
+            return;
+        }
+
+        var quilos = volume * 1000;
+        var perdaFinanceira = ((taxa_perdas * quilos) * precoCarne);
+        var economiaPossivel = perdaFinanceira * 0.6;
+        var emissaoCO2 = (volume * 0.05) * 4.5;
+        var economiaAgua = (volume * 15415) * (taxa_perdas * 0.6);
+        var tempoLogisticoEvitado = unidades * 2;
+        var impactoOperacional = unidades * volume * 10;
+
+        resultado.innerHTML = `
+            <h3>💰 Impacto Financeiro:</h3>
+            <p>Perda estimada sem monitoramento: <strong>R$ ${perdaFinanceira.toFixed(2)}</strong></p>
+            <p>Economia potencial com monitoramento: <strong>R$ ${economiaPossivel.toFixed(2)}</strong></p>
+            
+            <h3>🌍 Impacto Ambiental:</h3>
+            <p>Redução estimada de emissões de CO₂: <strong>${emissaoCO2.toFixed(2)} toneladas</strong></p>
+            <p>Economia de água: <strong>${economiaAgua.toFixed(2)} litros</strong></p>
+            
+            <h3>📦 Logística e Operação:</h3>
+            <p>Tempo logístico economizado: <strong>${tempoLogisticoEvitado} horas/mês</strong></p>
+            <p>Impacto operacional otimizado: <strong>${impactoOperacional} toneladas transportadas eficientemente</strong></p>
+        `;
+    }
+</script>
+</html>

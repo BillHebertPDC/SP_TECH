@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="var1" placeholder="renda do usuário">
+    <input type="number" id="var2" placeholder="renda total familiar">
+    <button onclick="cal()">Verificar ajuda</button>
+    <div id="conteudo"></div>
+</body>
+<script>
+    function cal(){
+        alert( var1.value <= 1050 && var2.value <=2100 ?("Você terá direito!"):("Você NÃO terá direito") )
+    }
+</script>
+</html>

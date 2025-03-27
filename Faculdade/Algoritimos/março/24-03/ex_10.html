@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" placeholder="voltas" id="voltas"></input>
+    <button onclick="calc()">Iniciar corrida!</button>
+    <div id="resposta"></div>
+</body>
+<script>
+    function calc(params) {
+        resposta.innerHTML =``
+        for(let i=0;i<voltas.value;i++)
+            resposta.innerHTML +=`Carro dando a ${i+1}ª volta   <br>`
+        resposta.innerHTML +=`Corrida finalizada!<br>`
+    }
+</script>
+</html>

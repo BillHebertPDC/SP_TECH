@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <input type="text" id="var1"placeholder="Nome da serie">
+     <input type="number" id="var2"placeholder="Total de episodios">
+     <button onclick="cal()">Verificar nível</button>
+     <div id="conteudo"></div>
+</body>
+<script>
+    function cal() {
+        conteudo.innerHTML =`Vejo que você gosta da série ${var1.value}<br>
+        ${(Number(var2.value)*22) >1800 ?("Uau, você realmente gosta dessa série!"):""}`
+    }
+</script>
+</html>

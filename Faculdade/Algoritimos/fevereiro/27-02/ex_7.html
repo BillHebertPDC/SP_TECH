@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculadora de Calorias</h1>
+
+    <label for="pao">Quantos pães franceses você come por dia?</label>
+    <input type="number" id="paes" min="0"><br><br>
+
+    <label for="bolacha">Quantos pacotes de bolacha recheada você come por dia?</label>
+    <input type="number" id="bolachas" min="0"><br><br>
+
+    <label for="achocolatado">Quantos copos de achocolatado você toma por dia?</label>
+    <input type="number" id="achocolatados" min="0"><br><br>
+
+    <button onclick="verificarCalorias()">Verificar calorias</button>
+
+    <div id="mensagem" style="margin-top: 20px; font-weight: bold;"></div>
+
+</body>
+    <script>
+        function verificarCalorias() {
+            const pao = Number(paes.value);
+            const bolacha = Number(bolachas.value);
+            const achocolatado = Number(achocolatados.value) ;
+            const totalCalorias = (pao * 50) + (bolacha * 80) + (achocolatado * 70);
+            if (totalCalorias < 200) {
+                mensagem.textContent = "Parabéns, vai ficar em forma!";
+                mensagem.style.color = "green";
+            } else if (totalCalorias <= 400) {
+                mensagem.textContent = "Cuidado, vai ficar menos saudável!";
+                mensagem.style.color = "orange";
+            } else {
+                mensagem.textContent = "Alerta crítico de saúde!!!";
+                mensagem.style.color = "red";
+            }
+        }
+    </script>
+</html>

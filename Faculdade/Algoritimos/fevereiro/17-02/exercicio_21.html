@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="var1"placeholder="meta de economia">
+    <input type="number" id="var2"placeholder="quanto tem guardado ">
+    <button onclick="cal()">Analisar economia</button>
+    <div id="conteudo"></div>
+</body>
+<script>
+    function cal(params) {
+        if(var2.value >= var1.value){
+            conteudo.innerHTML = " Parabéns, meta alcançada!"
+            if(var2.value > var1.value){
+                conteudo.innerHTML += `<br>Meta ultrapassada em ${Number(var2.value) - Number(var1.value)}`
+            }
+        }else{
+            conteudo.innerHTML = `Força! Ainda em busca da meta!<br>Falta ${Number(var1.value)-Number(var2.value)}`
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="qtd_carne">quantidade e carne transportada por mês:</label> <br>
+    <input type="number" id="qtd_carne" placeholder="Toneladas"> <br>
+
+    <label for="ipt_preco">Preço medio do kg da carne:</label> <br>
+    <input type="number" id="ipt_preco"> <br>
+
+    <button onclick="calcular()">Calcular</button> 
+
+    <p id="exibe"></p>
+</body>
+<script>
+    function calcular() {
+        var carne = Number(qtd_carne.value * 1000)
+        var carne_perdida = carne * 0.20
+        var carne_tonelada = carne_perdida 
+        
+        var perda = Number(ipt_preco.value) * carne_perdida
+        var co2 = carne * 4.5
+        var agua = (carne_perdida / 1000) * 15.5
+         
+        exibe.innerHTML =  `Sua operação em média perde ${carne_perdida}Kg de carne e R$${perda} por mês. <br>
+                            Emite ${co2} toneladas de Co2 <br>
+                            Desperdiça ${agua} toneladas de aǵua.
+                            `
+x    }
+</script>
+</html>

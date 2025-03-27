@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="var1" placeholder="saldo da conta ">
+    <input type="number" id="var2" placeholder="valor do débito">
+    <button onclick="func()">Analisar conta</button>
+    <label id="label" value="0"></label>
+</body>
+    <script>
+        function func() {
+            let saldo = Number(var1.value) - Number(var2.value)
+            label.style = ""
+            label.textContent = `O saldo atual da conta corrente é ${saldo}`
+            if(saldo < 0){
+                label.style = "color: red; font-weight: bold; font-style: italic"
+            }
+        }
+    </script>
+</html>

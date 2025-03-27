@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="var1" placeholder="kWh">
+    <input type="text" id="var2" placeholder="Bandeira">
+    <input type="number" id="var3" placeholder="MB">
+    <input type="text" id="var4" placeholder="Linha">
+    <button id="btn_4" onclick="Calcular()">Calcular Despesas Fixas</button>
+    <div id="conteudo"></div>
+</body>
+<script>
+    function Calcular() {
+        var bandeira = 0
+        var desconto = 1
+        var desconto2 = 1
+        if (var2.value == "verde") {
+            bandeira = 0.75
+        }
+        else if (var2.value == "amarela") {
+            bandeira = 0.9
+        }
+        else if (var2.value == "vermelha") {
+            bandeira = 1
+        }
+        if (var1.value <= 50) {
+            desconto = 0.90
+        }
+        if (var4.value == "sim") {
+            desconto2 = 1.35
+        } else {
+            desconto2 = 0.925
+        }
+        var conta1 = ((var1.value * bandeira) * desconto)
+        var conta2 = (var3.value * 0.8) * desconto2
+        conteudo.innerHTML = `
+        Com o consumo de ${var1.value} kWh na bandeira ${var2.value}, a conta de energia totaliza R$ ${conta1}. <br>
+        Com o consumo de ${var3.value} MB de internet, o valor do plano de internet/telefone totaliza R$ ${conta2}. <br>
+        Gasto total de despesas mensal: R$ ${conta1 + conta2}. 
+        `
+    }
+</script>
+</html>

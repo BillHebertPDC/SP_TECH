@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" placeholder="renda familiar mensal" id="var1">
+    <button onclick="cal()">Analisar Renda</button>
+    <div id="conteudo"></div>
+</body>
+<script>
+    function cal(){
+        var renda = var1.value
+        var text;
+        if(renda <250)
+            text="E"
+        else if(renda<901)
+            text="D"
+        else if(renda<2501)
+            text="C"
+        else if(renda<9501)
+            text="B"
+        else
+            text="A"
+        alert(`classe ${text}`)
+    }
+</script>
+</html>

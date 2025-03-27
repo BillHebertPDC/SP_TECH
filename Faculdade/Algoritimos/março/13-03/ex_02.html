@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="var1" placeholder="nota enem">
+    <input type="text" id="var2" placeholder="nota verstibular">
+    <button onclick="cal()">Avaliação</button>
+</body>
+<script>
+    function cal(){
+        alert((var1.value >= 800 || var2.value >= 700) ? `Parabéns! Aprovado`:`Tente semestre que vem!`)
+    }
+</script>
+</html>

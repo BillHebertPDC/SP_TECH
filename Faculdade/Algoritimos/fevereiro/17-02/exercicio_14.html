@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <input type="text" id="var1"placeholder="nome">
+     <input type="number" id="var2"placeholder="idade">
+     <button onclick="cal()">Avaliar aluno</button>
+     <div id="conteudo"></div>
+</body>
+<script>
+    function cal() {
+        var idade = Number(var2.value)
+        alert(`${idade >=18 ?(`${var1.value}, vamos tirar a CNH?`):(`${var1.value}, vai jogar PlayStation!`)}`)
+    }
+</script>
+</html>

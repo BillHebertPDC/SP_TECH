@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" placeholder="numero min" id="numero_min"></input>
+    <input type="number" placeholder="numero max" id="numero_max"></input>
+    <button onclick="calc()">S2 Pares</button>
+    <div id="resposta"></div>
+</body>
+<script>
+    function calc(params) {
+        resposta.innerHTML =``
+        let inicio = Number(numero_min.value)
+        let fim = numero_max.value
+        let _resposta = ``
+        for(let i = inicio ; i<=fim;i+=2)
+            _resposta +=`${i}<br>`
+        resposta.innerHTML = _resposta
+    }
+</script>
+</html>

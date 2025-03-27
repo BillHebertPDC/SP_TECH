@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <input type="number" id="var1"placeholder="saldo da conta "value="0">
+     <input type="number" id="var2"placeholder="débito">
+     <button onclick="cal()">Analisar conta</button>
+     <div id="conteudo"></div>
+</body>
+<script>
+    function cal() {
+        var novoSaldo = var1.value-var2.value
+        var1.value = novoSaldo
+        conteudo.style =(novoSaldo<0?"color: red; font-weight: bold;":"color: blue; font-style: italic;")  
+        conteudo.innerHTML = `o saldo atual da conta corrente é ${novoSaldo}.`
+    }
+</script>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="var1" placeholder="modo de pagamento">
+    <button onclick="cal()">Analisar compra</button>
+</body>
+<script>
+    function cal(){
+        alert((var1.value == "dinheiro" || var1.value == "Cartão de débito") ? `Você terá que pagar a vista`:( (var1.value == "Cartão de crédito" || var1.value == "Boleto") ? "Pagamento poderá ser parcelado":"Invalido"))
+    }
+</script>
+</html>

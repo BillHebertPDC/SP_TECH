@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body >
+    <div style="display: flex;">
+        <input type="number" placeholder="numero" id="x" ></input>
+        <div> X </div>
+        <input type="number" placeholder="numero" id="y"></input>
+        <button onclick="calc()">calcular</button>
+    </div>
+    <div id="resposta"></div>
+</body>
+<script>
+    function calc(params) {
+        resposta.innerHTML =``
+        let i=0
+        while(i <= y.value){
+            let total = i * x.value
+            resposta.innerHTML +=`<div style="${( (i%2) ==0) ?"color: blue;" :"color:red;"}"">${x.value} X ${i} = ${total} <br></div>`
+            i++
+        }
+    }
+</script>
+</html>
