@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>Pedra = 1 Papel = 2 Tesoura = 3</div>
+    <div style="display: flex;">
+        <input type="password" min="1" max="3" id="ipt_jogador1" placeholder="jogador 1">
+        <div> X </div>
+        <input type="password" min="1" max="3" id="ipt_jogador2" placeholder="jogador 2">
+    </div>
+    <button onclick="jogar()">JOGAR</button>
+    <div id="resposta"></div>
+</body>
+<script>
+
+    class jogador {
+        ganhou;
+        perdeu;
+        jogou;
+        constructor(ganhou,perdeu,jogou) {
+            this.ganhou=ganhou
+            this.perdeu=perdeu
+            this.jogou=jogou
+        }
+        addGanhou() {
+            this.ganhou++
+        }
+        alterarPerdeu(){
+            this.perdeu++
+        }
+        alterarJogou(alternativa){
+            this.jogou=alternativa
+        }
+    }
+    class jokenpo{
+        alternativas={
+            1:"pedra",
+            2:"papel",
+            3:"tesoura"
+        }
+        constructor(){}
+        batalhar(par1,par2){
+            if(par1=="pedra"&& par2=="tesoura" || par1=="papel" && par2 == "pedra"||par1=="tesoura" && par2 == "papel")
+                return 1
+            else if(par1=="pedra" && par2 == "papel" || par1=="papel"&& par2=="tesoura" || par1=="tesoura" && par2 == "pedra")
+                return 2
+            else if(par1=="pedra" && par2 == "pedra"|| par1=="papel" && par2 == "papel" || par1=="tesoura"&& par2=="tesoura")
+                return 0
+        }
+        jogar(jogador1,jogador2){
+            let jogada_jogador1 = this.alternativas[jogador1]
+            let jogada_jogador2 = this.alternativas[jogador2]
+            return [this.batalhar(jogada_jogador1,jogada_jogador2),this.batalhar(jogada_jogador2,jogada_jogador1)]
+        }
+    }
+    let jogo = new jokenpo() 
+    let jogador1=new jogador()
+    let jogador2=new jogador()       
+    function jogar() {
+        jogador1.alterarJogou(ipt_jogador1.value)
+        jogador2.alterarJogou(ipt_jogador2.value)
+        let jogada = jogo.jogar(jogador1.jogou,jogador2.jogou)
+        resposta.innerHTML = `O jogador 1 jogou ${jogo.alternativas[jogador1.jogou]} e o jogador 2 jogou ${jogo.alternativas[jogador2.jogou]}<br>`
+        if(jogada[0] == 2){
+            resposta.innerHTML += ` O Jogador1 PERDEU`
+            jogador1.alterarPerdeu()
+        }
+        if(jogada[0] == 1){
+            resposta.innerHTML += ` O Jogador1 GANHOU`
+            jogador1.addGanhou()
+        }
+        if(jogada[0] == 0){
+            resposta.innerHTML += ` O Jogador1 EMPATOU`
+        }
+        if(jogada[1] == 2){
+            resposta.innerHTML += ` O Jogador2 PERDEU`
+            jogador2.alterarPerdeu()
+        }
+        if(jogada[1] == 1){
+            resposta.innerHTML += ` O Jogador2 GANHOU`
+            jogador2.addGanhou()
+        }
+        if(jogada[1] == 0){
+            resposta.innerHTML += ` O Jogador2 EMPATOU`
+        }
+        resposta.innerHTML +=`<br><br> O jogador 1 tem ${jogador1.ganhou} Vitorias e ${jogador1.perdeu} Derrotas<br> O jogador 2 tem ${jogador2.ganhou} Vitorias e ${jogador2.perdeu} Derrotas<br>`
+
+    }
+</script>
+</html>
