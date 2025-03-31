@@ -13,17 +13,39 @@
         <input type="password" min="1" max="3" id="ipt_jogador2" placeholder="jogador 2">
     </div>
     <button onclick="jogar()">JOGAR</button>
-    <div id="resposta"></div>
+    <div id="resposta_jokenpo"></div>
+    <div>
+        <h1>JOGO DA VELHA</h1>
+        <div id="quem">COMEÇA COM X</div>
+        <div style="display: grid; width: 300px; height: 300px;border:solid 2px black;">
+            <div id="linha1" style="display: grid; grid-template-columns: 1fr 1fr 1fr;">
+                <div class="coluna" style="border:solid 2px black; justify-content: center; justify-items: center; align-items: center; display: flex;"  ></div>
+                <div class="coluna" style="border:solid 2px black; justify-content: center; justify-items: center;align-items: center; display: flex;"  ></div>
+                <div class="coluna" style="border:solid 2px black; justify-content: center; justify-items: center;align-items: center; display: flex;"  ></div>  
+            </div>
+            <div id="linha2" style="display: grid; grid-template-columns: 1fr 1fr 1fr;">
+                <div class="coluna"style="border:solid 2px black; justify-content: center; justify-items: center;align-items: center; display: flex;" ></div>
+                <div class="coluna"style="border:solid 2px black; justify-content: center; justify-items: center;align-items: center; display: flex;" ></div>
+                <div class="coluna"style="border:solid 2px black; justify-content: center; justify-items: center;align-items: center; display: flex;" ></div>  
+            </div>
+            <div id="linha3" style="display: grid; grid-template-columns: 1fr 1fr 1fr;">
+                <div class="coluna"style="border:solid 2px black; justify-content: center; justify-items: center;align-items: center; display: flex;" ></div>
+                <div class="coluna"style="border:solid 2px black; justify-content: center; justify-items: center;align-items: center; display: flex;" ></div>
+                <div class="coluna"style="border:solid 2px black; justify-content: center; justify-items: center;align-items: center; display: flex;" ></div>  
+            </div>
+        </div>
+    </div>
 </body>
 <script>
-
+    let quem_joga = true
+    let jogado_jogo_velha=0
     class jogador {
-        ganhou;
-        perdeu;
+        ganhou=0;
+        perdeu=0;
         jogou;
         constructor(ganhou,perdeu,jogou) {
-            this.ganhou=ganhou
-            this.perdeu=perdeu
+            this.ganhou=0
+            this.perdeu=0
             this.jogou=jogou
         }
         addGanhou() {
@@ -64,31 +86,76 @@
         jogador1.alterarJogou(ipt_jogador1.value)
         jogador2.alterarJogou(ipt_jogador2.value)
         let jogada = jogo.jogar(jogador1.jogou,jogador2.jogou)
-        resposta.innerHTML = `O jogador 1 jogou ${jogo.alternativas[jogador1.jogou]} e o jogador 2 jogou ${jogo.alternativas[jogador2.jogou]}<br>`
+        resposta_jokenpo.innerHTML = `O jogador 1 jogou ${jogo.alternativas[jogador1.jogou]} e o jogador 2 jogou ${jogo.alternativas[jogador2.jogou]}<br>`
         if(jogada[0] == 2){
-            resposta.innerHTML += ` O Jogador1 PERDEU`
+            resposta_jokenpo.innerHTML += ` O Jogador1 PERDEU`
             jogador1.alterarPerdeu()
         }
         if(jogada[0] == 1){
-            resposta.innerHTML += ` O Jogador1 GANHOU`
+            resposta_jokenpo.innerHTML += ` O Jogador1 GANHOU`
             jogador1.addGanhou()
         }
         if(jogada[0] == 0){
-            resposta.innerHTML += ` O Jogador1 EMPATOU`
+            resposta_jokenpo.innerHTML += ` O Jogador1 EMPATOU`
         }
         if(jogada[1] == 2){
-            resposta.innerHTML += ` O Jogador2 PERDEU`
+            resposta_jokenpo.innerHTML += ` O Jogador2 PERDEU`
             jogador2.alterarPerdeu()
         }
         if(jogada[1] == 1){
-            resposta.innerHTML += ` O Jogador2 GANHOU`
+            resposta_jokenpo.innerHTML += ` O Jogador2 GANHOU`
             jogador2.addGanhou()
         }
         if(jogada[1] == 0){
-            resposta.innerHTML += ` O Jogador2 EMPATOU`
+            resposta_jokenpo.innerHTML += ` O Jogador2 EMPATOU`
         }
-        resposta.innerHTML +=`<br><br> O jogador 1 tem ${jogador1.ganhou} Vitorias e ${jogador1.perdeu} Derrotas<br> O jogador 2 tem ${jogador2.ganhou} Vitorias e ${jogador2.perdeu} Derrotas<br>`
+        resposta_jokenpo.innerHTML +=`<br><br> O jogador 1 tem ${jogador1.ganhou} Vitorias e ${jogador1.perdeu} Derrotas<br> O jogador 2 tem ${jogador2.ganhou} Vitorias e ${jogador2.perdeu} Derrotas<br>`
 
     }
+    function marcar(e){
+        if(quem_joga==true){
+            this.innerHTML="X"
+        }else{
+            this.innerHTML="O"
+        }
+        let colunas = document.getElementsByClassName("coluna")
+        if(jogado_jogo_velha>0 &&(
+            (colunas[0].innerHTML == colunas[1].innerHTML && colunas[1].innerHTML == colunas[2].innerHTML && colunas[0].innerHTML !="" ) ||
+            (colunas[3].innerHTML == colunas[4].innerHTML && colunas[4].innerHTML == colunas[5].innerHTML && colunas[3].innerHTML !="" ) ||
+            (colunas[6].innerHTML == colunas[7].innerHTML && colunas[7].innerHTML == colunas[8].innerHTML && colunas[6].innerHTML !="" ) ||
+            (colunas[0].innerHTML == colunas[3].innerHTML && colunas[3].innerHTML == colunas[6].innerHTML && colunas[0].innerHTML !="" ) ||
+            (colunas[1].innerHTML == colunas[4].innerHTML && colunas[4].innerHTML == colunas[7].innerHTML && colunas[1].innerHTML !="" ) ||
+            (colunas[2].innerHTML == colunas[5].innerHTML && colunas[5].innerHTML == colunas[8].innerHTML && colunas[2].innerHTML !="" ) ||
+            (colunas[0].innerHTML == colunas[4].innerHTML && colunas[4].innerHTML == colunas[8].innerHTML && colunas[0].innerHTML !="" ) ||
+            (colunas[2].innerHTML == colunas[4].innerHTML && colunas[4].innerHTML == colunas[6].innerHTML && colunas[2].innerHTML !="" )    
+        )
+        ){
+            window.alert(`Jogador ${quem_joga ? "X":"O"} ganhou`)
+            for(let i=0;i<colunas.length;i++){
+                colunas[i].innerHTML=""
+            }
+        }
+        jogado_jogo_velha++
+        quem_joga=!quem_joga
+        quem.innerHTML = `Quem joga agora é ${quem_joga ? "X":"O"}`
+        let velha =true
+        for(let i=0;i<colunas.length;i++){
+            if(colunas[i].innerHTML==""){
+                velha = false
+            }
+        }
+        if(velha==true){
+            window.alert(`deu velha`)
+            for(let i=0;i<colunas.length;i++){
+                colunas[i].innerHTML=""
+            }
+        }
+
+    }
+    let colunas = document.getElementsByClassName("coluna")
+    for(let i =0;i< colunas.length;i++){
+        colunas[i].addEventListener("click", marcar);
+    }
+    
 </script>
 </html>

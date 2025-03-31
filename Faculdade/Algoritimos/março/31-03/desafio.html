@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number"id="musicas"placeholder="quantidade de musica">
+    <button onclick="comecar()">Começar o Show</button>
+</body>
+<script>
+    function comecar(){
+        let ultima_musica=""
+        for(let i=0;i<musicas.value;i++){
+            let musica = prompt(`Digite a Musica ${i}: `)
+            while(ultima_musica == musica){
+                musica = prompt(`Não é possivel repetir a ultima musica\n Digite a Musica ${i}: `)
+            }
+            ultima_musica = musica
+            let gosta_musica = prompt("Você gosta da musica: SIM ou NÂO")
+            while(gosta_musica !="SIM" && gosta_musica !="NÂO"){
+                gosta_musica = prompt("Você gosta da musica: SIM ou NÂO")
+            }
+            
+
+        }
+    }
+</script>
+</html>

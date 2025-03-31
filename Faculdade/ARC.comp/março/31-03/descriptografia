@@ -1,0 +1,11 @@
+criptografia
+1-inverter as letras
+2-converter para binario
+3-inverter o binario
+4-inverter a polaridade
+5-inverter o binario
+6-todo Byte par soma 1 ( direita para esquerda)
+7-todo Byte retira 128 decimal
+8-todo Byte recebe 32 decimal 
+8-converter para ascii
+6=:,/,

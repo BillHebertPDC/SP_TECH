@@ -1,0 +1,17 @@
+<div class="class-principal">
+    <h3>titulo</h3>
+    <div class="class-conteiner-grafico">
+        <div class="class-grafico">
+            <canvas id="id-grafico"></canvas>
+        </div>
+    </div>
+    <div class="graph_legendas">
+        <p>texto1</p>
+        <p>texto2</p>
+        <p>texto3</p>
+    </div>
+</div>
+<script>
+    var ctx = document.getElementById('id-grafico').getContext('2d');
+    var meuGrafico = new Chart(ctx, dados_grafico);
+</script>
