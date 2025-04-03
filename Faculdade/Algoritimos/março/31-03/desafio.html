@@ -8,11 +8,15 @@
 <body>
     <input type="number"id="musicas"placeholder="quantidade de musica">
     <button onclick="comecar()">Começar o Show</button>
+    <div id="musicas_resultado"></div>
 </body>
 <script>
     function comecar(){
         let ultima_musica=""
-        for(let i=0;i<musicas.value;i++){
+        let tocadas=0
+        let gostou=0
+        let n_gostou=0
+        for(let i=1;i<=musicas.value;i++){
             let musica = prompt(`Digite a Musica ${i}: `)
             while(ultima_musica == musica){
                 musica = prompt(`Não é possivel repetir a ultima musica\n Digite a Musica ${i}: `)
@@ -20,10 +24,38 @@
             ultima_musica = musica
             let gosta_musica = prompt("Você gosta da musica: SIM ou NÂO")
             while(gosta_musica !="SIM" && gosta_musica !="NÂO"){
-                gosta_musica = prompt("Você gosta da musica: SIM ou NÂO")
+                gosta_musica = prompt("digite apenas SIM ou NÂO")
             }
-            
-
+            if(gosta_musica == "NÂO"){
+                n_gostou++
+            }else if(gosta_musica == "SIM"){
+                gostou++
+            }
+            musicas_resultado[i]=i
+            musicas_resultado[`musica-${i}`]=musica
+            musicas_resultado[`gosta-${i}`]=gosta_musica
+        }
+        let ultima;
+        while(true){
+            let mensagem = "Escolha o numero da musica que deseja tocar ou digite SAIR\n "
+            for(let i=1;i<=musicas.value;i++){
+                mensagem += `${i} ${musicas_resultado[`musica-${i}`]} você ${musicas_resultado[`gosta-${i}`]} gosta\n`
+            }
+            let escolha = prompt(mensagem)
+            if(musicas_resultado[escolha]){
+                if(ultima != musicas_resultado[escolha]){
+                    ultima = musicas_resultado[escolha]
+                    tocadas++
+                    alert(`TOCANDO A MUSICA ${musicas_resultado[`musica-${escolha}`]}`)
+                }else{
+                    alert(`A MUSICA ${musicas_resultado[`musica-${escolha}`]} ACABOU DE SER TOCADA ESCOLHA OUTRA`)
+                }
+            }else if(escolha =="SAIR"){
+                alert(`músicas tocadas ${tocadas}\n músicas que gosta ${gostou}\n músicas que não gosta ${n_gostou}`)
+                break
+            }else{
+                alert(`Valor deve ser valido`)
+            }
         }
     }
 </script>
