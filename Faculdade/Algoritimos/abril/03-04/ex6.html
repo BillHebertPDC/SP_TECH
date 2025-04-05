@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="cal()">Sortear momento do dia</button>
+    <div id="resposta"></div>
+
+</body>
+<script>
+    function cal(){
+        let valor = (Math.random() * 23).toFixed()
+        resposta.innerHTML=`${valor <= 18 ?`Boa noite, durma bem! São ${valor}h!`:(valor<=12?`Boa tarde, já vai tarde! São ${valor}h!`:`Bom dia, flor do dia, são ${valor}h!`)}`
+    }
+</script>
+</html>

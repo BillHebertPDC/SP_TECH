@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" name="" id="ipt_min" placeholder="min">
+    <input type="number" name="" id="ipt_max" placeholder="max">
+    <div id="resposta"></div>
+    <button onclick="cal()">calcular</button>
+</body>
+<script>
+    function cal(){
+        let min = Number(ipt_min.value)
+        let max = Number(ipt_max.value)
+        let valor = Math.random()*(max-min)
+        let conta1 = Math.ceil(valor+min)  // Math.ceil(Math.random()*(max-min)+min)
+        let conta2 = valor < min && valor>max ? ()=>{
+            while(valor < min && valor>max){valor = Math.random()*(max-min) }
+            return valor
+        }:()=>{return valor}
+        resposta.innerHTML=`conta 1: ${conta1}<br>conta 2 ${conta2().toFixed(1)}`
+    }
+</script>
+</html>

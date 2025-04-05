@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="jog1()">jogador1</button>
+    <button onclick="jog2()">jogador2</button>
+    <button onclick="cal()">Jogar</button>
+    <div id="resposta"></div>
+
+</body>
+<script>
+    //let opcoes = ["pedra","papel","tesoura"]
+    let jogada1 = (Math.random()*2).toFixed()
+    let jogada2 = (Math.random()*2).toFixed()
+    let v_jogador1 =0
+    let v_jogador2 =0
+
+    function jog2(){
+        jogada2 = (Math.random()*2).toFixed()
+        console.log(jogada2)
+    }
+    function jog1(){
+        jogada1 = (Math.random()*2).toFixed()
+        console.log(jogada1)
+    }
+
+    function cal(){
+        if( jogada1==0 && jogada2==2 || jogada1==1 && jogada2 == 0 ){
+            resposta.innerHTML="O jogador 1 venceu"
+            v_jogador1++
+        }else if(jogada2==0 && jogada1==2 || jogada2==1 && jogada1 == 0 ){
+            resposta.innerHTML="O jogador 2 venceu"
+            v_jogador2++
+        }
+
+        resposta.innerHTML+=`<br>Jogador 1: ${v_jogador1} vitória(s) <br>Jogador 2: ${v_jogador2} vitória(s)`
+    }
+</script>
+</html>
