@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="cal1()">Gerar uma nota de aluno entre 3 e 10</button>
+    <div id="resultado1"></div>
+    <button onclick="cal2()">Gerar uma frequência de aluno entre 50 e 100</button>
+    <div id="resultado2"></div>
+    <button onclick="cal3()">Ver Aprovação</button>
+</body>
+<script>
+    var nota = 0
+    var frequencia = 0
+    function cal1(){
+        let valor = ((Math.random() * 7)+3).toFixed(1)
+        resultado1.innerHTML = valor
+        nota = valor
+    }
+    function cal2(){
+        let valor = ((Math.random() * 50)+50).toFixed(1)
+        resultado2.innerHTML = valor
+        frequencia = valor
+    }
+    function cal3(){
+        alert(`Com nota ${nota} e frequência ${frequencia}, o aluno está ${nota>=6 && frequencia>=75 ? "APROVADO":"REPROVADO"}!`)
+    }
+</script>
+</html>
