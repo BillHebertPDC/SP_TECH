@@ -172,10 +172,12 @@ body {
 
 .alerts-section {
   padding: var(--padding-interno);
+  overflow: auto;
 }
 
 .alert-item {
-  display: flex;
+  display: grid;
+  grid-template-columns:  80px 300px 100px 100px 80px;
   justify-content: space-between;
   padding: var(--padding-padrao);
   border-bottom: 1px solid var(--background-color);
