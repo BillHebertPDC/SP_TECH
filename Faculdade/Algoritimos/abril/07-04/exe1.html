@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="num1">
+    <button onclick="cal()">Ver divisores</button>
+    <div id="resultado">
+
+    </div>
+</body>
+<script>
+    function cal(){
+        let valor = parseInt(num1.value) 
+        for(let i= 0 ;i<=valor;i++){
+            if(valor%i == 0){
+                resultado.innerHTML += `${i}<br>`
+            }
+        }
+
+    }
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" min="10" max="500" id="num1">
+    <button onclick="cal()">SOMAR PARES</button>
+    <div id="resultado">
+
+    </div>
+</body>
+<script>
+    function cal(){
+        let soma = 0
+        resultado.innerHTML =""
+        if(num1.value <10 && num1.value>500){
+            alert("NUMERO INVALIDO")
+            return
+        }
+        for(let i=0;i<=num1.value;i++){
+            if(i%2==0){
+                resultado.innerHTML += `${i} `
+                soma+= i
+            }
+        }
+        resultado.innerHTML += `<br>A soma dos pares: ${soma} `
+
+    }
+</script>
+</html>

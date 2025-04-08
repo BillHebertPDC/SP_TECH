@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="limite_i" placeholder="limite inferior">
+    <input type="number" id="limite_s" placeholder="limite superior">
+    <input type="number" id="divisibilidade" placeholder="numero entre 3 e 10">
+    <button onclick="cal()">contar</button>
+    <div id="resultado">
+    </div>
+</body>
+<script>
+    function cal(){
+        if(limite_i.value <= 1 ||  limite_s.value >100 || divisibilidade.value < 3 || divisibilidade.value >10 ){
+            alert("VALORES INVALIDOS")
+            return
+        }
+        let maior = 0
+        let menor = 0
+        let exibidos = 0
+        let soma = 0
+        for(let i = Number(limite_i.value) ; i <= Number(limite_s.value) ; i++){
+            if(i%divisibilidade.value ==0){
+                exibidos++
+                soma +=i
+                let conta = i/divisibilidade.value
+                if( menor == 0){
+                    menor = i
+                }
+                if(i> maior){
+                    maior = i
+                }
+                resultado.innerHTML += `${i} / ${divisibilidade.value} = ${i/divisibilidade.value} , `
+            }
+        }
+        let media = soma/exibidos
+        resultado.innerHTML += `
+            <br>QUANTIDADE TOTAL DE NUMEROS EXIBIDOS ${exibidos}
+            <br>SOMATORIO DOS NUMEROS EXIBIDOS: ${soma}
+            <br>MEDIA DOS NUMEROS EXIBIDOS ${media}
+            <br>MAIOR NUMERO EXIBIDO ${maior}
+            <br>MENOR NUMERO EXIBIDO ${menor}`
+        
+    }
+</script>
+</html>

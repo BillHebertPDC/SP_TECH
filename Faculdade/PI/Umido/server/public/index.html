@@ -36,49 +36,68 @@ let dados = {
     },
     grupos_sensores: {
         temperatura: {
-            label: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'],
-            dados: [{
-                label: 'Umidade',
-                data: [35, 33, 30, 35, 40],
-                borderColor: 'rgba(75, 192, 192, 1)',
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                fill: true
+            graph_group:{
+                label: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'],
+                dados: [{
+                    label: 'Umidade',
+                    data: [35, 33, 30, 35, 40],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    fill: true
+                },
+                {
+                    label: 'Temperatura',
+                    data: [25, 26, 30, 28, 20],
+                    borderColor: 'rgba(255, 192, 192, 1)',
+                    backgroundColor: 'rgba(255, 192, 192, 0.2)',
+                    fill: true
+                }]
             },
-            {
-                label: 'Temperatura',
-                data: [25, 26, 30, 28, 20],
-                borderColor: 'rgba(255, 192, 192, 1)',
-                backgroundColor: 'rgba(255, 192, 192, 0.2)',
-                fill: true
-            }]
+            graph_real_time: {
+                label: ['40s', '35s', '30s', '25s', '20s', '15s', '10s', '5s'],
+                dados: [{
+                    label: 'Temperatura',
+                    data: [31, 31, 31, 31, 30.5, 30, 30, 30],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    fill: true
+                }, {
+                    label: 'umidade',
+                    data: [28, 28, 28, 29, 30, 31, 31, 30.5],
+                    borderColor: 'rgba(255, 192, 192, 1)',
+                    backgroundColor: 'rgba(255, 192, 192, 0.2)',
+                    fill: true
+                }]
+            },
+            graph_analitcs: {
+                label: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+                dados: [{
+                    label: '2024',
+                    data: ['120', '110', '100', '90', '80', '70', '60', '50', "40", "30", "20", "10"],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    fill: true
+                }]
+            },
+            sensors:[
+                {nome:"zona 1",temperatura:"23",status:"normal"},
+                {nome:"zona 2",temperatura:"40",status:"limite"},
+                {nome:"zona 3",temperatura:"35",status:"alto"},
+                {nome:"zona 4",temperatura:"21",status:"normal"},
+                {nome:"zona 5",temperatura:"24",status:"normal"},
+            ],
+            alerts:[
+                {
+                    nome:"Zona1",
+                    descricao:"Temperatura alta",
+                    data:"",
+                    hora:"",
+                    status:""
+                }
+            ]
         },
-        tempo_real: {
-            label: ['40s', '35s', '30s', '25s', '20s', '15s', '10s', '5s'],
-            dados: [{
-                label: 'Temperatura',
-                data: [31, 31, 31, 31, 30.5, 30, 30, 30],
-                borderColor: 'rgba(75, 192, 192, 1)',
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                fill: true
-            }, {
-                label: 'umidade',
-                data: [28, 28, 28, 29, 30, 31, 31, 30.5],
-                borderColor: 'rgba(255, 192, 192, 1)',
-                backgroundColor: 'rgba(255, 192, 192, 0.2)',
-                fill: true
-            }]
-        },
-        analise: {
-            label: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
-            dados: [{
-                label: '2024',
-                data: ['120', '110', '100', '90', '80', '70', '60', '50', "40", "30", "20", "10"],
-                borderColor: 'rgba(75, 192, 192, 1)',
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                fill: true
-            }]
-        }
     }
+
 }
 async function carregarHTML(id, arquivo, par = {}) {
     const response = await fetch(document.URL + arquivo);
@@ -103,7 +122,9 @@ function executarScripts(container) {
 window.onload = () => {
     carregarHTML('conteudo', 'layout/dashboard.html')
     carregarHTML('nav', 'layout/nav.html');
-    carregarHTML('list_sensor', 'componentes/list_sensor.html');
+    carregarHTML('list_sensor', 'componentes/list_sensor.html',{
+        sensor_replace: JSON.stringify(dados.grupos_sensores.temperatura.sensors)
+    });
     carregarHTML('graph_sensor', 'componentes/graph_sensor.html', {
         ["class-principal"]: "sensor-graph",
         ["class-conteiner-grafico"]: "grafico-container",
@@ -113,7 +134,7 @@ window.onload = () => {
         texto1: "temperatura",
         texto2: "umidade",
         texto3: "media",
-        ["dados_grafico"]: JSON.stringify(dados.montar_grafico("line", dados.grupos_sensores.temperatura.label, dados.grupos_sensores.temperatura.dados, dados.opcoes_padrão))
+        ["dados_grafico"]: JSON.stringify(dados.montar_grafico("line", dados.grupos_sensores.temperatura.graph_group.label, dados.grupos_sensores.temperatura.graph_group.dados, dados.opcoes_padrão))
     });
     carregarHTML('list_alerta', 'componentes/alerts.html');
     carregarHTML('graph_sensor_individual', 'componentes/graph_sensor.html', {
@@ -125,7 +146,7 @@ window.onload = () => {
         texto1: "temperatura",
         texto2: "umidade",
         texto3: "media",
-        ["dados_grafico"]: JSON.stringify(dados.montar_grafico("line", dados.grupos_sensores.tempo_real.label, dados.grupos_sensores.tempo_real.dados, dados.opcoes_padrão))
+        ["dados_grafico"]: JSON.stringify(dados.montar_grafico("line", dados.grupos_sensores.temperatura.graph_real_time.label, dados.grupos_sensores.temperatura.graph_real_time.dados, dados.opcoes_padrão))
     });
     carregarHTML("graph_incidentes_mes", 'componentes/graph_sensor.html', {
         ["class-principal"]: "sensor-graph",
@@ -136,7 +157,7 @@ window.onload = () => {
         texto1: "Quantidade de Queimadas",
         texto2: "",
         texto3: "",
-        ["dados_grafico"]: JSON.stringify(dados.montar_grafico("line", dados.grupos_sensores.analise.label, dados.grupos_sensores.analise.dados, dados.opcoes_padrão))
+        ["dados_grafico"]: JSON.stringify(dados.montar_grafico("line", dados.grupos_sensores.temperatura.graph_analitcs.label, dados.grupos_sensores.temperatura.graph_analitcs.dados, dados.opcoes_padrão))
     })
 
 };
