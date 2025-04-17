@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scroll-Controlled Video</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: sans-serif;
+    }
+
+    video#bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .spacer {
+      height: 5000px; /* Ajuste o quanto quiser para o scroll */
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 200px 2rem;
+      color: white;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <video id="bg-video" muted playsinline preload="auto">
+    <source src="./video.mp4" type="video/mp4" />
+  </video>
+
+  <div class="overlay"></div>
+
+  <!-- Conteúdo -->
+  <div class="content">
+    <h1>Scroll para controlar o vídeo</h1>
+    <p>Continue rolando para frente ou para trás.</p>
+  </div>
+
+  <!-- Espaço para scroll -->
+  <div class="spacer"></div>
+
+  <script>
+    const video = document.getElementById('bg-video');
+    let duration = 4
+    video.addEventListener('loadedmetadata', () => {
+
+    });
+    function updateVideoFrame() {
+      const scrollTop = window.scrollY;
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      const scrollFraction = scrollTop / maxScroll;
+      const targetTime = scrollFraction * duration;
+      video.currentTime += (targetTime - video.currentTime) * 0.1;
+      requestAnimationFrame(updateVideoFrame);
+    }
+    requestAnimationFrame(updateVideoFrame);
+  </script>
+
+</body>
+</html>

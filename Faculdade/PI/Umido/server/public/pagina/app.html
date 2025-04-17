@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"  href="./style.css" ></link>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="i_header">
+        <div class="container">
+            <div class="logo">
+                <!-- UMIDO -->
+            </div>
+            <nav>
+                <input type="text">
+            </nav>
+            <div class="div_perfil">
+                <div>
+                    <h4>nome</h4>
+                    <h5>cargo</h4>
+                </div>
+                <div></div>
+            </div>
+        </div>
+    </header>
+    <div class="app_layout">
+        <div class="sidebar side_ativado"></div>
+        <section class="app_conteudo">
+            <div class="card">
+                <div class="KPIs">
+                    <div class="card">
+                        <div class="titulo"     >4</div>
+                        <div class="legenda"    >Incidentes</div>
+                        <div class="sub_legenda">( Mês atual )</div>
+                    </div>
+                    <div class="card">
+                        <div class="titulo"     >30</div>
+                        <div class="legenda"    >Umidade media atual</div>
+                        <div class="sub_legenda"></div>
+                    </div>
+                    <div class="card">
+                        <div class="titulo"     >10/10</div>
+                        <div class="legenda"    >Sensores em funcionamento</div>
+                        <div class="sub_legenda"></div>
+                    </div>
+                    <div class="card">
+                        <div class="titulo"     >10</div>
+                        <div class="legenda"    >Dados exportados</div>
+                        <div class="sub_legenda">( Mês atual )</div>
+
+                    </div>
+                    <div class="card">
+                        <div>13:42</div>
+                        <div>Ultima atualização</div>
+                    </div>
+                </div>
+                <div class="plantacao">
+                    <div>
+                        <div>
+                            Titulo grafico
+                        </div>
+                        <div>
+                            <canvas id="id-grafico"></canvas>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div>Lista de sensores</div>
+                        <div class="list_button"></div>
+                        
+                    </div>
+                </div>
+                <div class="plantacao_mes">
+                    <div class="grafico">
+                        <div>
+                            <div>
+                                Titulo grafico
+                            </div>
+                            <div>
+                                <canvas id="id-grafico"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grafico">
+                        <div>
+                            <div>
+                                Titulo grafico
+                            </div>
+                            <div>
+                                <canvas id="id-grafico"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grafico">
+                        <div>
+                            <div>
+                                Titulo grafico
+                            </div>
+                            <div>
+                                <canvas id="id-grafico"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+<script>
+    var ctx = document.getElementById('id-grafico').getContext('2d');
+    var meuGrafico = new Chart(ctx,
+        {
+            type: "line",
+            data: {
+                labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+                datasets: [{
+                    label: '2024',
+                    data: ['120', '110', '100', '90', '80', '70', '60', '50', "40", "30", "20", "10"],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    fill: true
+                }]
+            },
+            options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+        }
+    );
+</script>
+</html>

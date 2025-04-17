@@ -8,14 +8,16 @@
     <button class="add-button">+ Adicionar Sensor</button>
 </div>
 <script>
-    let lista = sensor_replace
-    let html=``
-    for(let i=0;i<lista.length;i++){
-        html += `
-        <div class="sensor-item">
-            <span>${lista[i].nome}</span>
-            <span>${lista[i].temperatura} Cº</span>
-        </div>`
-    }
-    list_sensores.innerHTML=html
+    (()=>{
+        let lista = sensor_replace
+        let html=``
+        for(let i=0;i<lista.length;i++){
+            html += `
+            <div class="sensor-item">
+                <span>${lista[i].nome}</span>
+                <span>${lista[i].temperatura} Cº</span>
+            </div>`
+        }
+        list_sensores.innerHTML=html
+    })()
 </script>

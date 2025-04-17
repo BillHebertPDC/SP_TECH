@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"  href="./inicio.css" ></link>
+
+</head>
+<body>
+    <div class="back_popup ativado" id="f_popup">
+        <div class="popup">
+            <header class="container">
+                <button onclick="logar()">X</button>
+            </header>
+            <section class="layout_cadastro">
+                <div class="card">
+                    <div class="form_cadastro">
+                        <p>Cadastro</p>
+                        <div>
+                            <p>nome</p>
+                            <input>
+                            <p>email</p>
+                            <input>
+                            <p>senha</p>
+                            <input>
+                            <p>CNPJ</p>
+                            <input>
+                        </div>
+                        <button>Cadastrar</button>
+                    </div>
+                    <div></div>
+                </div>
+            </section>
+            <section class="layout_login">
+                <div class="card">
+                    <div></div>
+                    <div class="form_login">
+                        <p>Bem vindo</p>
+                        <div>
+                            <p>Login</p>
+                            <input>
+                            <p>Senha</p>
+                            <input>
+                        </div>
+                        <button>Cadastrar</button>
+                        <button>ENTRAR</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div>
+        <video id="bg-video" muted playsinline preload="auto">
+            <source src="./video.mp4" type="video/mp4" />
+          </video>
+        <header class="i_header">
+            <div class="container">
+                <div class="logo">
+                </div>
+                <nav>
+                    <a href="#banner">Inicio</a>
+                    <a href="#problem">Problema</a>
+                    <a href="#solucao">Solução</a>
+                    <a href="#diferenciais">Diferenciais</a>
+                    <a href="#Calculadora">Calculadora</a>
+                </nav>
+                <button id="btn_login" onclick="logar()">Login</button>
+            </div>
+        </header>
+        <section class="i_section">
+            <div class="layout_inicio">
+                <div class="card" id="banner">
+                    <div class="titulo">PREVENÇÃO DE QUEIMADAS POR MONITORAMENTO DE UMIDADE</div>
+                    <div class="sub_titulo">Uma solução tecnológica avançada que reduz em até 30% a incidência de queimadas em áreas agrícolas através do monitoramento inteligente da umidade do solo</div>
+                    <div>
+                        <button class="btn_comum conhecer">CONHEÇA NOSSA TECNOLOGIA</button>
+                        <button class="btn_comum contato">ENTRE EM CONTATO</button>
+                    </div>
+                </div>
+                <div class="problema" id="problem">
+                    <div class="card">
+                        <div class="titulo" id="titulo_problema">O PROBLEMA DAS QUEIMADAS</div>
+                        <div class="div_problema">
+                            <div class="card">
+                                <img src="./grafico.png" class="img" >
+                                <div class="titulo">R$ 14 bilhões</div>
+                                <div class="legenda">Prejuízo anual por queimadas</div>
+                            </div>
+                            <div class="card">
+                                <img src="./fogo.png" class="img" >
+                                <div class="titulo">222 mil</div>
+                                <div class="legenda">queimadas no Brasil</div>
+                            </div>
+                            <div class="card">
+                                <img src="./dolar.png" class="img" >
+                                <div class="titulo">2,8 milhões</div>
+                                <div class="legenda">Hectares devastados pelo fogo</div>
+                            </div>
+                            <div class="card">
+                                <img src="./porcentagem.png" class="img" >
+                                <div class="titulo">2% do PIB</div>
+                                <div class="legenda">Impacto das queimadas</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="div_problema2">
+                        <div class="card">
+                            <div class="titulo">Impactos Econômicos</div>
+                            <div class="list">                                
+                                    <li>
+                                        Aumento dos custos na produção
+                                    </li>
+                                    <li>
+                                        Restrição nas exportações
+                                    </li>
+                                    <li>
+                                        Aumento nos preços de +7,69%
+                                    </li>
+                                    <li>
+                                        Redução do solo de reter umidade
+                                    </li>
+                                    <li>
+                                        Elevação dos custos
+                                    </li>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="titulo">Impactos Ambientais</div>
+                            <div class="list">                                
+                                    <li>
+                                        Degradação do solo e da fertilidade
+                                    </li>
+                                    <li>
+                                        Aceleração da erosão do solo
+                                    </li>
+                                    <li>
+                                        Poluição de rios e nascentes
+                                    </li>
+                                    <li>
+                                        Agravamento do efeito estufa
+                                    </li>
+                                    <li>
+                                        Redução da biodiversidade
+                                    </li>
+                                    <li>
+                                        Aumento constante de incêndios
+                                    </li>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="titulo">Impactos Sociais</div>
+                            <div class="list">                                
+                                    <li>
+                                        Falha na segurança alimentar
+                                    </li>
+                                    <li>
+                                        Perda de colheitas
+                                    </li>
+                                    <li>
+                                        Piora da qualidade do ar
+                                    </li>
+                                    <li>
+                                        Problemas de saúde na população
+                                    </li>
+                                    <li>
+                                        Impacto na estrutura do solo
+                                    </li>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="solucao" id="solucao">
+                    <div class="div_solucao card">
+                        <div class="titulo">Nossa Solução</div>
+                        <div class="texto">O projeto UMIDO implementa uma solução tecnológica para monitoramento e controle da umidade em plantações agrícolas.
+                            <img src="./diagrama.png" style="width: 100%;">
+                            O sistema funciona através de uma rede de sensores distribuídos estrategicamente nas áreas de plantio, que coletam dados em tempo real sobre os níveis de umidade do solo.
+                        </div>
+                    </div>
+                </div>
+                <div class="diferenciais" id="diferenciais">
+                    <div class="titulo" id="titulo_diferenciais">DIFERENCIAIS</div>
+                    <div class="div_diferenciais">
+                        <div class="card">
+                            <img src="./grafico.png" class="img">
+                            <div class="titulo">Dashboard</div>
+                            <div>Dashboard para melhor analise e tomada de decisão</div>
+                        </div>
+                        <div class="card">
+                            <img src="./alert.png" class="img">
+                            <div class="titulo">Alertas me tempo real</div>
+                            <div>Alertas caso ocorra algum possivel incidente</div>
+                        </div>
+                        <div class="card">
+                            <img src="./monitoramento.png" class="img">
+                            <div class="titulo">Monitore em tempo real</div>
+                            <div>Monitore sua platação em tempo real </div>
+                        </div>
+                        <div class="card">
+                            <img src="./exportar.png" class="img">
+                            <div class="titulo">Exportar dados</div>
+                            <div>Exporte os dados da sua platação</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="tela-simulador">
+                        <div id="simulador" class="simulador ">
+                            <h1 id="simulador_id" class="simulador-title">Simulador Financeiro</h1>
+                
+                            <!-- INPUTS -->
+                
+                            <div class="simulador-ipt" id="simulador_input">
+                                <input class="simulador-caixa" id='ipt_tamanho'
+                                    placeholder="Insira a quantidade de hectares da sua plantação">
+                                <input class="simulador-caixa" id='ipt_tipo' placeholder="Insira o tipo da plantação">
+                                <input class="simulador-caixa" id='ipt_preco'
+                                    placeholder="Insira o preço da sua produção média por hectares">
+                                <button class="simulador-calcular" onclick="calcular()">CALCULAR<i class="fas fa-caret-right"
+                                        style="font-size: px;"></i></button>
+                
+                            </div>
+                
+                            <div id="simulador_output" class="simulador-resultado tela-inativa">
+                                <div class="resultado-container">
+                                    <div class="resultado-texto">
+                                        <span>Valor total da plantação:</span>
+                                        <span>Valor economizado com a prevenção:</span>
+                                        <span>Valor economizado com impostos</span>
+                                        <span>Economia total:</span>
+                                        <span>Projeção de lucro de preços com certificação:</span>
+                                        <span>O preço médio da venda de dados pode ser de até:</span>
+                                    </div>
+                                    <div class="resultado-valor">
+                                        <div>R$<span id="print_resultado_valor">1000</span></div>
+                                        <div>R$ <span id="print_resultado_prevencao" class="valor-lucro">22</span></div>
+                                        <div>R$ <span id="print_resultado_isencao" class="valor-lucro">100</span></div>
+                                        <div>R$ <span id="print_resultado_total" class="valor-lucro">10011111</span></div>
+                                        <div>R$ <span id="print_resultado_certificacao" class="valor-lucro">1111</span></div>
+                                        <div>R$ <span id="print_resultado_venda" class="valor-lucro">1111</span></div>
+                
+                
+                
+                
+                                    </div>
+                                </div>
+                
+                
+                                <div class="resultado-botao">Entre em contato conosco</div>
+                            </div>
+                
+                
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <footer>
+            <div class="logo-footer"></div>
+            <div class="footer-info footer-contato">
+                <h2>Nossos contatos</h2>
+                <p>umido.contato@sptech.school</p>
+            </div>
+            <div class="footer-info footer-sobre-nos">
+                <h2>Sobre nós</h2>
+            </div>
+            <div class="footer-mensagem">
+                <p>Obrigado por acessar!</p>
+                <p>&copy;UMIDO 2025</p>
+            </div>
+        </footer>  
+    </div>
+
+</body>
+<script>
+
+    const video = document.getElementById('bg-video');
+    function updateVideoFrame() {
+      const scrollTop = window.scrollY;
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      const scrollFraction = 1 - (scrollTop / maxScroll);
+      const targetTime = scrollFraction * 3;
+      video.currentTime += (targetTime - video.currentTime) * 0.1;
+      requestAnimationFrame(updateVideoFrame);
+    }
+    requestAnimationFrame(updateVideoFrame);
+    function logar(){
+        if(f_popup.classList.value.split(" ").includes("desativado")){
+            f_popup.classList.remove("desativado")
+            f_popup.classList.add("ativado")
+        }else{
+            f_popup.classList.remove("ativado")
+            f_popup.classList.add("desativado")
+            
+        }
+        
+    }
+</script>
+</html>

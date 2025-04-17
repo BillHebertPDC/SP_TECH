@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div>
+        <canvas id="id-grafico"></canvas>
+    </div>
+    <div>
+        <canvas id="id-grafico2"></canvas>
+    </div>
+</body>
+<style>
+    body{
+        display: flex;
+    }
+    div{
+        width: 500px;
+    }
+</style>
+<script>
+    let dados = [{
+                    label: 'Temperatura media',
+                    data: ['20', '22', '25', '22', '20', '18'],
+                    borderColor: 'rgba(75, 192, 192, 0)',
+                    backgroundColor: 'rgba(75, 192, 192, 1)',
+                    fill: true
+                },{
+                    label: 'Umidade media',
+                    data: ['90', '88', '93', '90', '86', '89'],
+                    borderColor: 'rgba(75, 192, 192, 0)',
+                    backgroundColor: 'rgba(75, 2, 192, 1)',
+                    fill: true
+                }
+            ]
+    var ctx = document.getElementById('id-grafico').getContext('2d');
+    var meuGrafico = new Chart(ctx,
+        {
+            type: "line",
+            data: {
+                labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"],
+                datasets: dados
+            },
+            options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+        }
+    );
+    var ctx2 = document.getElementById('id-grafico2').getContext('2d');
+    var meuGrafico2 = new Chart(ctx2,
+        {
+            type: "bar",
+            data: {
+                labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"],
+                datasets: dados
+            },
+            options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+        }
+    );
+</script>
+</html>

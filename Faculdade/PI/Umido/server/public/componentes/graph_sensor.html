@@ -12,6 +12,8 @@
     </div>
 </div>
 <script>
-    var ctx = document.getElementById('id-grafico').getContext('2d');
-    var meuGrafico = new Chart(ctx, dados_grafico);
+    (()=>{
+        var ctx = document.getElementById('id-grafico').getContext('2d');
+        var meuGrafico = new Chart(ctx, dados_grafico);
+    })()
 </script>

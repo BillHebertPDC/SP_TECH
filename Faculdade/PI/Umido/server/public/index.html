@@ -136,7 +136,9 @@ window.onload = () => {
         texto3: "media",
         ["dados_grafico"]: JSON.stringify(dados.montar_grafico("line", dados.grupos_sensores.temperatura.graph_group.label, dados.grupos_sensores.temperatura.graph_group.dados, dados.opcoes_padrão))
     });
-    carregarHTML('list_alerta', 'componentes/alerts.html');
+    carregarHTML('list_alerta', 'componentes/alerts.html',{
+        alerts_replace: JSON.stringify(dados.grupos_sensores.temperatura.alerts)
+    });
     carregarHTML('graph_sensor_individual', 'componentes/graph_sensor.html', {
         ["class-principal"]: "sensor-graph",
         ["class-conteiner-grafico"]: "grafico-container",
