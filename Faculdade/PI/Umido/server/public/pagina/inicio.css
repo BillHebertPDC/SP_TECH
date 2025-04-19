@@ -293,7 +293,7 @@ video#bg-video {
 .popup {
   display: grid;
   grid-template-columns: 1fr 10fr 1fr;
-  grid-template-rows: 200px 1fr;
+  grid-template-rows: 100px 1fr 100px;
   top: 0;
   left: 0;
   width: 100%;
@@ -308,9 +308,14 @@ video#bg-video {
   align-items: center;
 }
 .popup .container button {
-  width: 200px;
-  height: 50px;
   grid-column: 2;
+  width: 80px;
+  height: 80px;
+}
+.popup .card{
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 .layout_login {
   grid-row: 2;
@@ -344,4 +349,12 @@ video#bg-video {
   flex-direction: column;
   gap: 10px;
   align-items: center;
+}
+.form_login{
+  grid-column: 2;
+  grid-row: 1;
+}
+.form_cadastro{
+  grid-column: 1;
+  grid-row: 1;
 }
