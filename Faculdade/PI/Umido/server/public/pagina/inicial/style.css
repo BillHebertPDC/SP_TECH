@@ -1,0 +1,533 @@
+body {
+  background-color: #0a0a0a;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Header Styles */
+.i_header {
+  background-color: #1a1a1a;
+  color: white;
+  height: 110px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.i_header .container {
+  display: grid;
+  grid-template-columns: 250px 1fr 250px;
+  height: 100%;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo h1 {
+  margin: 0;
+  color: #00a8ff;
+  font-size: 36px;
+  letter-spacing: 2px;
+}
+
+/* Navigation */
+.i_header .container nav {
+  display: flex;
+  justify-content: center;
+}
+
+.i_header .container input {
+  width: 80%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: none;
+  background-color: #2a2a2a;
+  color: white;
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  color: #00a8ff;
+  margin-left: -40px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Profile Section */
+.div_perfil {
+  display: grid;
+  grid-template-columns: 1fr 50px;
+  align-items: center;
+}
+
+.div_perfil h4 {
+  margin: 0;
+  font-weight: 800;
+  font-size: 18px;
+  color: white;
+}
+
+.div_perfil h5 {
+  margin: 5px 0 0 0;
+  color: #aaa;
+  font-weight: normal;
+}
+
+.profile-pic {
+  font-size: 40px;
+  color: #00a8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Layout Structure */
+.app_layout {
+  height: calc(100vh - 110px);
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: #1a1a1a;
+  width: 100px;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.side_ativado {
+  width: 250px;
+}
+
+.menu {
+  list-style-type: none;
+  padding: 20px 0;
+  margin: 0;
+}
+
+.menu li {
+  padding: 15px 20px;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.menu li:hover {
+  background-color: #2a2a2a;
+  color: #00a8ff;
+}
+
+.menu li.active {
+  background-color: #2a2a2a;
+  color: #00a8ff;
+  border-left: 4px solid #00a8ff;
+}
+
+.menu li i {
+  font-size: 18px;
+  width: 30px;
+  text-align: center;
+  margin-right: 15px;
+}
+
+.toggle-sidebar {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #2a2a2a;
+  color: #00a8ff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Main Content */
+.app_conteudo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  padding: 20px;
+}
+
+/* Cards */
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.app_conteudo .card {
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 20px;
+  gap: 20px;
+  overflow: auto;
+}
+
+/* KPIs Section */
+.KPIs {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.KPIs .card {
+  height: 150px;
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.KPIs .card:hover {
+  transform: translateY(-5px);
+}
+
+.KPIs .card:nth-child(1) {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+  color: white;
+}
+
+.KPIs .card:nth-child(2) {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+}
+
+.KPIs .card:nth-child(3) {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  color: white;
+}
+
+.KPIs .card:nth-child(4) {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  color: white;
+}
+
+.KPIs .card:nth-child(5) {
+  background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+  color: white;
+}
+
+.titulo {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.legenda {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.sub_legenda {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* Plantacao Section */
+.plantacao {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  height: 400px;
+  gap: 20px;
+}
+
+.plantacao .card {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.chart-title, .sensor-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
+
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 30px);
+}
+
+.sensor-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.sensor-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+}
+
+.sensor-list li:last-child {
+  border-bottom: none;
+}
+
+.sensor-status {
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.sensor-status.active {
+  background-color: #28a745;
+  color: white;
+}
+
+/* Plantacao Mes Section */
+.plantacao_mes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.plantacao_mes .grafico {
+  height: 350px;
+}
+
+.plantacao_mes .card {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+/* Estilos para o popup - adicionar ao final do style.css */
+.sensor-popup {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: auto;
+}
+
+.popup-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: popupOpen 0.5s;
+}
+
+@keyframes popupOpen {
+  from {transform: scale(0.7); opacity: 0;}
+  to {transform: scale(1); opacity: 1;}
+}
+
+.close-popup {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.close-popup:hover {
+  color: #00a8ff;
+}
+
+.sensor-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.metric-card {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.metric-value {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #00a8ff;
+}
+
+.sensor-chart {
+  height: 300px;
+  margin-top: 20px;
+}
+/* Adicionar ao final do style.css */
+
+/* Estilo para o botão de adicionar sensor */
+.add-btn {
+  float: right;
+  background-color: #00a8ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.3s;
+}
+
+.add-btn:hover {
+  background-color: #0089d1;
+}
+
+/* Estilos para o modal de adicionar sensor */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: auto;
+}
+
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 25px;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: modalOpen 0.4s;
+}
+
+@keyframes modalOpen {
+  from {transform: translateY(-50px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.close-modal:hover {
+  color: #00a8ff;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.cancel-btn {
+  background-color: #f1f1f1;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.save-btn {
+  background-color: #00a8ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.save-btn:hover {
+  background-color: #0089d1;
+}
+
+.cancel-btn:hover {
+  background-color: #e1e1e1;
+}
+
+/* Estilo para notificação de sucesso */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #28a745;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1100;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s;
+}
+
+.notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}

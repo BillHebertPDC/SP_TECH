@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMIDO Dashboard</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="i_header">
+        <div class="container">
+            <div class="logo">
+                <h1>UMIDO</h1>
+            </div>
+            <nav>
+                <input type="text" placeholder="Buscar...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </nav>
+            <div class="div_perfil">
+                <div>
+                    <h4>João Silva</h4>
+                    <h5>Administrador</h5>
+                </div>
+                <div class="profile-pic">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="app_layout">
+        <div class="sidebar side_ativado">
+            <ul class="menu">
+                <li class="active"><i class="fas fa-chart-line"></i> <span>Dashboard</span></li>
+                <li><i class="fas fa-map-marker-alt"></i> <span>Sensores</span></li>
+                <li><i class="fas fa-history"></i> <span>Histórico</span></li>
+                <li><i class="fas fa-bell"></i> <span>Alertas</span></li>
+                <li><i class="fas fa-cog"></i> <span>Configurações</span></li>
+                <li><i class="fas fa-sign-out-alt"></i> <span>Sair</span></li>
+            </ul>
+            <div class="toggle-sidebar">
+                <i class="fas fa-angle-double-left"></i>
+            </div>
+        </div>
+        <section class="app_conteudo">
+            <div class="card">
+                <div class="KPIs">
+                    <div class="card">
+                        <div class="titulo">4</div>
+                        <div class="legenda">Incidentes</div>
+                        <div class="sub_legenda">(Mês atual)</div>
+                    </div>
+                    <div class="card">
+                        <div class="titulo">30%</div>
+                        <div class="legenda">Umidade média atual</div>
+                        <div class="sub_legenda"></div>
+                    </div>
+                    <div class="card">
+                        <div class="titulo">10/10</div>
+                        <div class="legenda">Sensores em funcionamento</div>
+                        <div class="sub_legenda"></div>
+                    </div>
+                    <div class="card">
+                        <div class="titulo">10</div>
+                        <div class="legenda">Dados exportados</div>
+                        <div class="sub_legenda">(Mês atual)</div>
+                    </div>
+                    <div class="card">
+                        <div class="titulo">13:42</div>
+                        <div class="legenda">Última atualização</div>
+                        <div class="sub_legenda"></div>
+                    </div>
+                </div>
+                <div class="plantacao">
+                    <div class="card">
+                        <div class="chart-title">Umidade por Período</div>
+                        <div class="chart-container">
+                            <canvas id="chart-umidade"></canvas>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="sensor-title">Lista de sensores
+                            <button id="add-sensor-btn" class="add-btn"><i class="fas fa-plus"></i> Novo Sensor</button>
+                        </div>
+                        <div class="list_button">
+                            <ul class="sensor-list">
+                                <li><span class="sensor-name">Sensor 1</span><span class="sensor-status active">Ativo</span></li>
+                                <li><span class="sensor-name">Sensor 2</span><span class="sensor-status active">Ativo</span></li>
+                                <li><span class="sensor-name">Sensor 3</span><span class="sensor-status active">Ativo</span></li>
+                                <li><span class="sensor-name">Sensor 4</span><span class="sensor-status active">Ativo</span></li>
+                                <li><span class="sensor-name">Sensor 5</span><span class="sensor-status active">Ativo</span></li>
+                                <li><span class="sensor-name">Sensor 6</span><span class="sensor-status active">Ativo</span></li>
+                                <li><span class="sensor-name">Sensor 7</span><span class="sensor-status active">Ativo</span></li>
+                                <li><span class="sensor-name">Sensor 8</span><span class="sensor-status active">Ativo</span></li>
+                                <li><span class="sensor-name">Sensor 9</span><span class="sensor-status active">Ativo</span></li>
+                                <li><span class="sensor-name">Sensor 10</span><span class="sensor-status active">Ativo</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="plantacao_mes">
+                    <div class="grafico">
+                        <div class="card">
+                            <div class="chart-title">Umidade Mensal</div>
+                            <div class="chart-container">
+                                <canvas id="chart-mensal"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grafico">
+                        <div class="card">
+                            <div class="chart-title">Incidentes por Área</div>
+                            <div class="chart-container">
+                                <canvas id="chart-incidentes"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grafico">
+                        <div class="card">
+                            <div class="chart-title">Performance do Sistema</div>
+                            <div class="chart-container">
+                                <canvas id="chart-performance"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="sensor-popup" class="sensor-popup">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <h2 id="sensor-popup-title">Sensor X</h2>
+            <div class="sensor-metrics">
+                <div class="metric-card">
+                    <h3>Umidade Atual</h3>
+                    <div class="metric-value" id="sensor-umidade">--</div>
+                </div>
+                <div class="metric-card">
+                    <h3>Bateria</h3>
+                    <div class="metric-value" id="sensor-bateria">--</div>
+                </div>
+                <div class="metric-card">
+                    <h3>Status</h3>
+                    <div class="metric-value" id="sensor-status">--</div>
+                </div>
+            </div>
+            <div class="sensor-chart">
+                <h3>Histórico de Umidade (24h)</h3>
+                <canvas id="sensor-chart"></canvas>
+            </div>
+        </div>
+    </div>
+    <!-- Adicionar depois do sensor-popup (que já implementamos anteriormente) -->
+<div id="add-sensor-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Adicionar Novo Sensor</h2>
+        <form id="add-sensor-form">
+            <div class="form-group">
+                <label for="sensor-nome">Nome do Sensor:</label>
+                <input type="text" id="sensor-nome" required placeholder="Ex: Sensor 11">
+            </div>
+            <div class="form-group">
+                <label for="sensor-local">Localização:</label>
+                <input type="text" id="sensor-local" required placeholder="Ex: Área E">
+            </div>
+            <div class="form-group">
+                <label for="sensor-tipo">Tipo de Sensor:</label>
+                <select id="sensor-tipo" required>
+                    <option value="">Selecione um tipo</option>
+                    <option value="umidade">Umidade</option>
+                    <option value="temperatura">Temperatura</option>
+                    <option value="combo">Combo (Umidade + Temperatura)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sensor-intervalo">Intervalo de Leitura (minutos):</label>
+                <input type="number" id="sensor-intervalo" min="1" max="60" value="15">
+            </div>
+            <div class="form-buttons">
+                <button type="button" class="cancel-btn">Cancelar</button>
+                <button type="submit" class="save-btn">Salvar Sensor</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+<script>
+    // Chart Configuration
+    // Chart 1: Umidade por Período
+    var ctxUmidade = document.getElementById('chart-umidade').getContext('2d');
+    var chartUmidade = new Chart(ctxUmidade, {
+        type: "line",
+        data: {
+            labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+            datasets: [{
+                label: '2024',
+                data: [120, 110, 100, 90, 80, 70, 60, 50, 40, 30, 20, 10],
+                borderColor: 'rgba(0, 123, 255, 1)',
+                backgroundColor: 'rgba(0, 123, 255, 0.2)',
+                fill: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Chart 2: Umidade Mensal
+    var ctxMensal = document.getElementById('chart-mensal').getContext('2d');
+    var chartMensal = new Chart(ctxMensal, {
+        type: "bar",
+        data: {
+            labels: ["Semana 1", "Semana 2", "Semana 3", "Semana 4"],
+            datasets: [{
+                label: 'Abril 2024',
+                data: [85, 72, 65, 78],
+                backgroundColor: 'rgba(40, 167, 69, 0.7)'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // Chart 3: Incidentes por Área
+    var ctxIncidentes = document.getElementById('chart-incidentes').getContext('2d');
+    var chartIncidentes = new Chart(ctxIncidentes, {
+        type: "pie",
+        data: {
+            labels: ["Área A", "Área B", "Área C", "Área D"],
+            datasets: [{
+                data: [1, 2, 0, 1],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.7)',
+                    'rgba(54, 162, 235, 0.7)',
+                    'rgba(255, 206, 86, 0.7)',
+                    'rgba(75, 192, 192, 0.7)'
+                ]
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+
+    // Chart 4: Performance do Sistema
+    var ctxPerformance = document.getElementById('chart-performance').getContext('2d');
+    var chartPerformance = new Chart(ctxPerformance, {
+        type: "radar",
+        data: {
+            labels: ["Precisão", "Resposta", "Uptime", "Conectividade", "Eficiência"],
+            datasets: [{
+                label: 'Sistema Atual',
+                data: [95, 85, 99, 92, 88],
+                backgroundColor: 'rgba(255, 193, 7, 0.2)',
+                borderColor: 'rgba(255, 193, 7, 1)',
+                pointBackgroundColor: 'rgba(255, 193, 7, 1)'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scale: {
+                ticks: {
+                    beginAtZero: true,
+                    max: 100
+                }
+            }
+        }
+    });
+    
+    // Sidebar toggle functionality
+    document.querySelector('.toggle-sidebar').addEventListener('click', function() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.toggle('side_ativado');
+        
+        const icon = this.querySelector('i');
+        if (sidebar.classList.contains('side_ativado')) {
+            icon.classList.remove('fa-angle-double-right');
+            icon.classList.add('fa-angle-double-left');
+        } else {
+            icon.classList.remove('fa-angle-double-left');
+            icon.classList.add('fa-angle-double-right');
+        }
+    });
+
+    // Adicionar antes do fechamento da tag </body>
+
+// Dados simulados dos sensores (numa aplicação real, viriam do backend)
+const sensoresData = {
+    "Sensor 1": { umidade: "28%", bateria: "92%", status: "Ativo", historico: [25, 27, 28, 30, 29, 28, 27, 26, 28, 29, 30, 28] },
+    "Sensor 2": { umidade: "32%", bateria: "87%", status: "Ativo", historico: [30, 31, 33, 32, 34, 33, 32, 31, 30, 32, 31, 32] },
+    "Sensor 3": { umidade: "25%", bateria: "95%", status: "Ativo", historico: [22, 23, 24, 25, 26, 25, 24, 23, 25, 26, 25, 25] },
+    "Sensor 4": { umidade: "35%", bateria: "78%", status: "Ativo", historico: [33, 34, 35, 36, 35, 34, 33, 35, 36, 35, 34, 35] },
+    "Sensor 5": { umidade: "29%", bateria: "89%", status: "Ativo", historico: [27, 28, 29, 30, 31, 30, 29, 28, 29, 30, 29, 29] },
+    "Sensor 6": { umidade: "31%", bateria: "90%", status: "Ativo", historico: [29, 30, 31, 32, 31, 30, 31, 32, 31, 30, 31, 31] },
+    "Sensor 7": { umidade: "27%", bateria: "85%", status: "Ativo", historico: [25, 26, 27, 28, 27, 27, 26, 27, 28, 27, 26, 27] },
+    "Sensor 8": { umidade: "33%", bateria: "91%", status: "Ativo", historico: [31, 32, 33, 34, 33, 32, 33, 34, 33, 32, 33, 33] },
+    "Sensor 9": { umidade: "30%", bateria: "88%", status: "Ativo", historico: [28, 29, 30, 31, 30, 29, 30, 31, 30, 29, 30, 30] },
+    "Sensor 10": { umidade: "26%", bateria: "83%", status: "Ativo", historico: [24, 25, 26, 27, 26, 25, 26, 27, 26, 25, 26, 26] }
+};
+
+// Configurar cliques nos sensores
+document.querySelectorAll('.sensor-list li').forEach(item => {
+    item.addEventListener('click', function() {
+        const sensorName = this.querySelector('.sensor-name').textContent;
+        openSensorPopup(sensorName);
+    });
+    
+    // Adicionar cursor pointer para indicar que é clicável
+    item.style.cursor = 'pointer';
+});
+
+// Função para abrir o popup
+function openSensorPopup(sensorName) {
+    const popup = document.getElementById('sensor-popup');
+    const popupTitle = document.getElementById('sensor-popup-title');
+    const sensorUmidade = document.getElementById('sensor-umidade');
+    const sensorBateria = document.getElementById('sensor-bateria');
+    const sensorStatus = document.getElementById('sensor-status');
+    
+    // Configurar dados do sensor
+    const data = sensoresData[sensorName];
+    popupTitle.textContent = sensorName;
+    sensorUmidade.textContent = data.umidade;
+    sensorBateria.textContent = data.bateria;
+    sensorStatus.textContent = data.status;
+    
+    // Mostrar o popup
+    popup.style.display = 'block';
+    
+    // Criar gráfico do sensor
+    createSensorChart(data.historico);
+}
+
+// Função para criar o gráfico
+function createSensorChart(data) {
+    const ctx = document.getElementById('sensor-chart').getContext('2d');
+    
+    // Destruir gráfico anterior se existir
+    if (window.sensorChart) {
+        window.sensorChart.destroy();
+    }
+    
+    // Horários para o eixo X (últimas 12 horas)
+    const hours = [];
+    const now = new Date();
+    for (let i = 11; i >= 0; i--) {
+        const hour = new Date(now);
+        hour.setHours(now.getHours() - i);
+        hours.push(hour.getHours() + ':00');
+    }
+    
+    // Criar novo gráfico
+    window.sensorChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: hours,
+            datasets: [{
+                label: 'Umidade (%)',
+                data: data,
+                borderColor: '#00a8ff',
+                backgroundColor: 'rgba(0, 168, 255, 0.1)',
+                fill: true,
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: false,
+                    min: Math.min(...data) - 5,
+                    max: Math.max(...data) + 5
+                }
+            }
+        }
+    });
+}
+
+// Configurar fechamento do popup
+document.querySelector('.close-popup').addEventListener('click', function() {
+    document.getElementById('sensor-popup').style.display = 'none';
+});
+
+// Fechar o popup se clicar fora do conteúdo
+window.addEventListener('click', function(event) {
+    const popup = document.getElementById('sensor-popup');
+    if (event.target === popup) {
+        popup.style.display = 'none';
+    }
+});
+// Adicionar ao final do seu script atual
+
+// Criar elemento de notificação
+const notification = document.createElement('div');
+notification.className = 'notification';
+document.body.appendChild(notification);
+
+// Função para mostrar notificação
+function showNotification(message, type = 'success') {
+    notification.textContent = message;
+    notification.className = 'notification';
+    
+    if (type === 'error') {
+        notification.style.backgroundColor = '#dc3545';
+    } else {
+        notification.style.backgroundColor = '#28a745';
+    }
+    
+    notification.classList.add('show');
+    
+    // Esconder após 3 segundos
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 3000);
+}
+
+// Configuração do modal para adicionar sensor
+const addSensorModal = document.getElementById('add-sensor-modal');
+const addSensorBtn = document.getElementById('add-sensor-btn');
+const closeModal = document.querySelector('.close-modal');
+const cancelBtn = document.querySelector('.cancel-btn');
+const addSensorForm = document.getElementById('add-sensor-form');
+
+// Contador para sensores
+let sensorCounter = 10; // Já existem 10 sensores
+
+// Abrir modal
+addSensorBtn.addEventListener('click', function() {
+    addSensorModal.style.display = 'block';
+});
+
+// Fechar modal (X ou Cancelar)
+function closeAddSensorModal() {
+    addSensorModal.style.display = 'none';
+    addSensorForm.reset();
+}
+
+closeModal.addEventListener('click', closeAddSensorModal);
+cancelBtn.addEventListener('click', closeAddSensorModal);
+
+// Fechar se clicar fora do modal
+window.addEventListener('click', function(event) {
+    if (event.target === addSensorModal) {
+        closeAddSensorModal();
+    }
+});
+
+// Processar o formulário
+addSensorForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Obter valores do formulário
+    const nome = document.getElementById('sensor-nome').value;
+    const local = document.getElementById('sensor-local').value;
+    const tipo = document.getElementById('sensor-tipo').value;
+    const intervalo = document.getElementById('sensor-intervalo').value;
+    
+    // Validar dados (validação básica)
+    if (!nome || !local || !tipo) {
+        showNotification('Por favor, preencha todos os campos obrigatórios.', 'error');
+        return;
+    }
+    
+    // Verificar se o nome do sensor já existe
+    const sensorNames = Array.from(document.querySelectorAll('.sensor-name')).map(el => el.textContent);
+    if (sensorNames.includes(nome)) {
+        showNotification('Um sensor com este nome já existe.', 'error');
+        return;
+    }
+    
+    // Adicionar novo sensor à lista
+    const sensorList = document.querySelector('.sensor-list');
+    const newSensor = document.createElement('li');
+    newSensor.innerHTML = `<span class="sensor-name">${nome}</span><span class="sensor-status active">Ativo</span>`;
+    newSensor.style.cursor = 'pointer';
+    sensorList.appendChild(newSensor);
+    
+    // Adicionar evento de clique ao novo sensor
+    newSensor.addEventListener('click', function() {
+        openSensorPopup(nome);
+    });
+    
+    // Adicionar aos dados simulados
+    sensoresData[nome] = {
+        umidade: `${Math.floor(25 + Math.random() * 10)}%`, 
+        bateria: '100%',
+        status: 'Ativo',
+        historico: Array.from({length: 12}, () => Math.floor(25 + Math.random() * 10)),
+        local: local,
+        tipo: tipo,
+        intervalo: intervalo
+    };
+    
+    // Atualizar contador de sensores
+    sensorCounter++;
+    
+    // Atualizar o KPI de sensores em funcionamento
+    const sensorKPI = document.querySelector('.KPIs .card:nth-child(3) .titulo');
+    sensorKPI.textContent = `${sensorCounter}/${sensorCounter}`;
+    
+    // Exibir notificação de sucesso
+    showNotification(`Sensor "${nome}" adicionado com sucesso!`);
+    
+    // Fechar o modal
+    closeAddSensorModal();
+});
+</script>
+</html>
