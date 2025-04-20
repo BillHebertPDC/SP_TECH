@@ -19,7 +19,7 @@ body {
   height: 50px;
 }
 .i_header .logo {
-  background-image: url("./Log.png");
+  background-image: url("../imgs/Log.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -163,7 +163,7 @@ nav a {
   justify-items: center;
 }
 #banner {
-  background-image: url("./status.png");
+  background-image: url("../imgs/status.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
