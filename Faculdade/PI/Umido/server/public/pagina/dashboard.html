@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <header class="i_header">
         <div class="container">
@@ -85,16 +87,26 @@
                         </div>
                         <div class="list_button">
                             <ul class="sensor-list">
-                                <li><span class="sensor-name">Sensor 1</span><span class="sensor-status active">Ativo</span></li>
-                                <li><span class="sensor-name">Sensor 2</span><span class="sensor-status active">Ativo</span></li>
-                                <li><span class="sensor-name">Sensor 3</span><span class="sensor-status active">Ativo</span></li>
-                                <li><span class="sensor-name">Sensor 4</span><span class="sensor-status active">Ativo</span></li>
-                                <li><span class="sensor-name">Sensor 5</span><span class="sensor-status active">Ativo</span></li>
-                                <li><span class="sensor-name">Sensor 6</span><span class="sensor-status active">Ativo</span></li>
-                                <li><span class="sensor-name">Sensor 7</span><span class="sensor-status active">Ativo</span></li>
-                                <li><span class="sensor-name">Sensor 8</span><span class="sensor-status active">Ativo</span></li>
-                                <li><span class="sensor-name">Sensor 9</span><span class="sensor-status active">Ativo</span></li>
-                                <li><span class="sensor-name">Sensor 10</span><span class="sensor-status active">Ativo</span></li>
+                                <li><span class="sensor-name">Sensor 1</span><span
+                                        class="sensor-status active">Ativo</span></li>
+                                <li><span class="sensor-name">Sensor 2</span><span
+                                        class="sensor-status active">Ativo</span></li>
+                                <li><span class="sensor-name">Sensor 3</span><span
+                                        class="sensor-status active">Ativo</span></li>
+                                <li><span class="sensor-name">Sensor 4</span><span
+                                        class="sensor-status active">Ativo</span></li>
+                                <li><span class="sensor-name">Sensor 5</span><span
+                                        class="sensor-status active">Ativo</span></li>
+                                <li><span class="sensor-name">Sensor 6</span><span
+                                        class="sensor-status active">Ativo</span></li>
+                                <li><span class="sensor-name">Sensor 7</span><span
+                                        class="sensor-status active">Ativo</span></li>
+                                <li><span class="sensor-name">Sensor 8</span><span
+                                        class="sensor-status active">Ativo</span></li>
+                                <li><span class="sensor-name">Sensor 9</span><span
+                                        class="sensor-status active">Ativo</span></li>
+                                <li><span class="sensor-name">Sensor 10</span><span
+                                        class="sensor-status active">Ativo</span></li>
                             </ul>
                         </div>
                     </div>
@@ -154,39 +166,39 @@
         </div>
     </div>
     <!-- Adicionar depois do sensor-popup (que já implementamos anteriormente) -->
-<div id="add-sensor-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        <h2>Adicionar Novo Sensor</h2>
-        <form id="add-sensor-form">
-            <div class="form-group">
-                <label for="sensor-nome">Nome do Sensor:</label>
-                <input type="text" id="sensor-nome" required placeholder="Ex: Sensor 11">
-            </div>
-            <div class="form-group">
-                <label for="sensor-local">Localização:</label>
-                <input type="text" id="sensor-local" required placeholder="Ex: Área E">
-            </div>
-            <div class="form-group">
-                <label for="sensor-tipo">Tipo de Sensor:</label>
-                <select id="sensor-tipo" required>
-                    <option value="">Selecione um tipo</option>
-                    <option value="umidade">Umidade</option>
-                    <option value="temperatura">Temperatura</option>
-                    <option value="combo">Combo (Umidade + Temperatura)</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="sensor-intervalo">Intervalo de Leitura (minutos):</label>
-                <input type="number" id="sensor-intervalo" min="1" max="60" value="15">
-            </div>
-            <div class="form-buttons">
-                <button type="button" class="cancel-btn">Cancelar</button>
-                <button type="submit" class="save-btn">Salvar Sensor</button>
-            </div>
-        </form>
+    <div id="add-sensor-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Adicionar Novo Sensor</h2>
+            <form id="add-sensor-form">
+                <div class="form-group">
+                    <label for="sensor-nome">Nome do Sensor:</label>
+                    <input type="text" id="sensor-nome" required placeholder="Ex: Sensor 11">
+                </div>
+                <div class="form-group">
+                    <label for="sensor-local">Localização:</label>
+                    <input type="text" id="sensor-local" required placeholder="Ex: Área E">
+                </div>
+                <div class="form-group">
+                    <label for="sensor-tipo">Tipo de Sensor:</label>
+                    <select id="sensor-tipo" required>
+                        <option value="">Selecione um tipo</option>
+                        <option value="umidade">Umidade</option>
+                        <option value="temperatura">Temperatura</option>
+                        <option value="combo">Combo (Umidade + Temperatura)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sensor-intervalo">Intervalo de Leitura (minutos):</label>
+                    <input type="number" id="sensor-intervalo" min="1" max="60" value="15">
+                </div>
+                <div class="form-buttons">
+                    <button type="button" class="cancel-btn">Cancelar</button>
+                    <button type="submit" class="save-btn">Salvar Sensor</button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 </body>
 <script>
     // Chart Configuration
@@ -285,12 +297,12 @@
             }
         }
     });
-    
+
     // Sidebar toggle functionality
-    document.querySelector('.toggle-sidebar').addEventListener('click', function() {
+    document.querySelector('.toggle-sidebar').addEventListener('click', function () {
         const sidebar = document.querySelector('.sidebar');
         sidebar.classList.toggle('side_ativado');
-        
+
         const icon = this.querySelector('i');
         if (sidebar.classList.contains('side_ativado')) {
             icon.classList.remove('fa-angle-double-right');
@@ -303,226 +315,227 @@
 
     // Adicionar antes do fechamento da tag </body>
 
-// Dados simulados dos sensores (numa aplicação real, viriam do backend)
-const sensoresData = {
-    "Sensor 1": { umidade: "28%", bateria: "92%", status: "Ativo", historico: [25, 27, 28, 30, 29, 28, 27, 26, 28, 29, 30, 28] },
-    "Sensor 2": { umidade: "32%", bateria: "87%", status: "Ativo", historico: [30, 31, 33, 32, 34, 33, 32, 31, 30, 32, 31, 32] },
-    "Sensor 3": { umidade: "25%", bateria: "95%", status: "Ativo", historico: [22, 23, 24, 25, 26, 25, 24, 23, 25, 26, 25, 25] },
-    "Sensor 4": { umidade: "35%", bateria: "78%", status: "Ativo", historico: [33, 34, 35, 36, 35, 34, 33, 35, 36, 35, 34, 35] },
-    "Sensor 5": { umidade: "29%", bateria: "89%", status: "Ativo", historico: [27, 28, 29, 30, 31, 30, 29, 28, 29, 30, 29, 29] },
-    "Sensor 6": { umidade: "31%", bateria: "90%", status: "Ativo", historico: [29, 30, 31, 32, 31, 30, 31, 32, 31, 30, 31, 31] },
-    "Sensor 7": { umidade: "27%", bateria: "85%", status: "Ativo", historico: [25, 26, 27, 28, 27, 27, 26, 27, 28, 27, 26, 27] },
-    "Sensor 8": { umidade: "33%", bateria: "91%", status: "Ativo", historico: [31, 32, 33, 34, 33, 32, 33, 34, 33, 32, 33, 33] },
-    "Sensor 9": { umidade: "30%", bateria: "88%", status: "Ativo", historico: [28, 29, 30, 31, 30, 29, 30, 31, 30, 29, 30, 30] },
-    "Sensor 10": { umidade: "26%", bateria: "83%", status: "Ativo", historico: [24, 25, 26, 27, 26, 25, 26, 27, 26, 25, 26, 26] }
-};
+    // Dados simulados dos sensores (numa aplicação real, viriam do backend)
+    const sensoresData = {
+        "Sensor 1": { umidade: "28%", bateria: "92%", status: "Ativo", historico: [25, 27, 28, 30, 29, 28, 27, 26, 28, 29, 30, 28] },
+        "Sensor 2": { umidade: "32%", bateria: "87%", status: "Ativo", historico: [30, 31, 33, 32, 34, 33, 32, 31, 30, 32, 31, 32] },
+        "Sensor 3": { umidade: "25%", bateria: "95%", status: "Ativo", historico: [22, 23, 24, 25, 26, 25, 24, 23, 25, 26, 25, 25] },
+        "Sensor 4": { umidade: "35%", bateria: "78%", status: "Ativo", historico: [33, 34, 35, 36, 35, 34, 33, 35, 36, 35, 34, 35] },
+        "Sensor 5": { umidade: "29%", bateria: "89%", status: "Ativo", historico: [27, 28, 29, 30, 31, 30, 29, 28, 29, 30, 29, 29] },
+        "Sensor 6": { umidade: "31%", bateria: "90%", status: "Ativo", historico: [29, 30, 31, 32, 31, 30, 31, 32, 31, 30, 31, 31] },
+        "Sensor 7": { umidade: "27%", bateria: "85%", status: "Ativo", historico: [25, 26, 27, 28, 27, 27, 26, 27, 28, 27, 26, 27] },
+        "Sensor 8": { umidade: "33%", bateria: "91%", status: "Ativo", historico: [31, 32, 33, 34, 33, 32, 33, 34, 33, 32, 33, 33] },
+        "Sensor 9": { umidade: "30%", bateria: "88%", status: "Ativo", historico: [28, 29, 30, 31, 30, 29, 30, 31, 30, 29, 30, 30] },
+        "Sensor 10": { umidade: "26%", bateria: "83%", status: "Ativo", historico: [24, 25, 26, 27, 26, 25, 26, 27, 26, 25, 26, 26] }
+    };
 
-// Configurar cliques nos sensores
-document.querySelectorAll('.sensor-list li').forEach(item => {
-    item.addEventListener('click', function() {
-        const sensorName = this.querySelector('.sensor-name').textContent;
-        openSensorPopup(sensorName);
+    // Configurar cliques nos sensores
+    document.querySelectorAll('.sensor-list li').forEach(item => {
+        item.addEventListener('click', function () {
+            const sensorName = this.querySelector('.sensor-name').textContent;
+            openSensorPopup(sensorName);
+        });
+
+        // Adicionar cursor pointer para indicar que é clicável
+        item.style.cursor = 'pointer';
     });
-    
-    // Adicionar cursor pointer para indicar que é clicável
-    item.style.cursor = 'pointer';
-});
 
-// Função para abrir o popup
-function openSensorPopup(sensorName) {
-    const popup = document.getElementById('sensor-popup');
-    const popupTitle = document.getElementById('sensor-popup-title');
-    const sensorUmidade = document.getElementById('sensor-umidade');
-    const sensorBateria = document.getElementById('sensor-bateria');
-    const sensorStatus = document.getElementById('sensor-status');
-    
-    // Configurar dados do sensor
-    const data = sensoresData[sensorName];
-    popupTitle.textContent = sensorName;
-    sensorUmidade.textContent = data.umidade;
-    sensorBateria.textContent = data.bateria;
-    sensorStatus.textContent = data.status;
-    
-    // Mostrar o popup
-    popup.style.display = 'block';
-    
-    // Criar gráfico do sensor
-    createSensorChart(data.historico);
-}
+    // Função para abrir o popup
+    function openSensorPopup(sensorName) {
+        const popup = document.getElementById('sensor-popup');
+        const popupTitle = document.getElementById('sensor-popup-title');
+        const sensorUmidade = document.getElementById('sensor-umidade');
+        const sensorBateria = document.getElementById('sensor-bateria');
+        const sensorStatus = document.getElementById('sensor-status');
 
-// Função para criar o gráfico
-function createSensorChart(data) {
-    const ctx = document.getElementById('sensor-chart').getContext('2d');
-    
-    // Destruir gráfico anterior se existir
-    if (window.sensorChart) {
-        window.sensorChart.destroy();
+        // Configurar dados do sensor
+        const data = sensoresData[sensorName];
+        popupTitle.textContent = sensorName;
+        sensorUmidade.textContent = data.umidade;
+        sensorBateria.textContent = data.bateria;
+        sensorStatus.textContent = data.status;
+
+        // Mostrar o popup
+        popup.style.display = 'block';
+
+        // Criar gráfico do sensor
+        createSensorChart(data.historico);
     }
-    
-    // Horários para o eixo X (últimas 12 horas)
-    const hours = [];
-    const now = new Date();
-    for (let i = 11; i >= 0; i--) {
-        const hour = new Date(now);
-        hour.setHours(now.getHours() - i);
-        hours.push(hour.getHours() + ':00');
-    }
-    
-    // Criar novo gráfico
-    window.sensorChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: hours,
-            datasets: [{
-                label: 'Umidade (%)',
-                data: data,
-                borderColor: '#00a8ff',
-                backgroundColor: 'rgba(0, 168, 255, 0.1)',
-                fill: true,
-                tension: 0.4
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: false,
-                    min: Math.min(...data) - 5,
-                    max: Math.max(...data) + 5
+
+    // Função para criar o gráfico
+    function createSensorChart(data) {
+        const ctx = document.getElementById('sensor-chart').getContext('2d');
+
+        // Destruir gráfico anterior se existir
+        if (window.sensorChart) {
+            window.sensorChart.destroy();
+        }
+
+        // Horários para o eixo X (últimas 12 horas)
+        const hours = [];
+        const now = new Date();
+        for (let i = 11; i >= 0; i--) {
+            const hour = new Date(now);
+            hour.setHours(now.getHours() - i);
+            hours.push(hour.getHours() + ':00');
+        }
+
+        // Criar novo gráfico
+        window.sensorChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: hours,
+                datasets: [{
+                    label: 'Umidade (%)',
+                    data: data,
+                    borderColor: '#00a8ff',
+                    backgroundColor: 'rgba(0, 168, 255, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: Math.min(...data) - 5,
+                        max: Math.max(...data) + 5
+                    }
                 }
             }
+        });
+    }
+
+    // Configurar fechamento do popup
+    document.querySelector('.close-popup').addEventListener('click', function () {
+        document.getElementById('sensor-popup').style.display = 'none';
+    });
+
+    // Fechar o popup se clicar fora do conteúdo
+    window.addEventListener('click', function (event) {
+        const popup = document.getElementById('sensor-popup');
+        if (event.target === popup) {
+            popup.style.display = 'none';
         }
     });
-}
+    // Adicionar ao final do seu script atual
 
-// Configurar fechamento do popup
-document.querySelector('.close-popup').addEventListener('click', function() {
-    document.getElementById('sensor-popup').style.display = 'none';
-});
-
-// Fechar o popup se clicar fora do conteúdo
-window.addEventListener('click', function(event) {
-    const popup = document.getElementById('sensor-popup');
-    if (event.target === popup) {
-        popup.style.display = 'none';
-    }
-});
-// Adicionar ao final do seu script atual
-
-// Criar elemento de notificação
-const notification = document.createElement('div');
-notification.className = 'notification';
-document.body.appendChild(notification);
-
-// Função para mostrar notificação
-function showNotification(message, type = 'success') {
-    notification.textContent = message;
+    // Criar elemento de notificação
+    const notification = document.createElement('div');
     notification.className = 'notification';
-    
-    if (type === 'error') {
-        notification.style.backgroundColor = '#dc3545';
-    } else {
-        notification.style.backgroundColor = '#28a745';
+    document.body.appendChild(notification);
+
+    // Função para mostrar notificação
+    function showNotification(message, type = 'success') {
+        notification.textContent = message;
+        notification.className = 'notification';
+
+        if (type === 'error') {
+            notification.style.backgroundColor = '#dc3545';
+        } else {
+            notification.style.backgroundColor = '#28a745';
+        }
+
+        notification.classList.add('show');
+
+        // Esconder após 3 segundos
+        setTimeout(() => {
+            notification.classList.remove('show');
+        }, 3000);
     }
-    
-    notification.classList.add('show');
-    
-    // Esconder após 3 segundos
-    setTimeout(() => {
-        notification.classList.remove('show');
-    }, 3000);
-}
 
-// Configuração do modal para adicionar sensor
-const addSensorModal = document.getElementById('add-sensor-modal');
-const addSensorBtn = document.getElementById('add-sensor-btn');
-const closeModal = document.querySelector('.close-modal');
-const cancelBtn = document.querySelector('.cancel-btn');
-const addSensorForm = document.getElementById('add-sensor-form');
+    // Configuração do modal para adicionar sensor
+    const addSensorModal = document.getElementById('add-sensor-modal');
+    const addSensorBtn = document.getElementById('add-sensor-btn');
+    const closeModal = document.querySelector('.close-modal');
+    const cancelBtn = document.querySelector('.cancel-btn');
+    const addSensorForm = document.getElementById('add-sensor-form');
 
-// Contador para sensores
-let sensorCounter = 10; // Já existem 10 sensores
+    // Contador para sensores
+    let sensorCounter = 10; // Já existem 10 sensores
 
-// Abrir modal
-addSensorBtn.addEventListener('click', function() {
-    addSensorModal.style.display = 'block';
-});
-
-// Fechar modal (X ou Cancelar)
-function closeAddSensorModal() {
-    addSensorModal.style.display = 'none';
-    addSensorForm.reset();
-}
-
-closeModal.addEventListener('click', closeAddSensorModal);
-cancelBtn.addEventListener('click', closeAddSensorModal);
-
-// Fechar se clicar fora do modal
-window.addEventListener('click', function(event) {
-    if (event.target === addSensorModal) {
-        closeAddSensorModal();
-    }
-});
-
-// Processar o formulário
-addSensorForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    // Obter valores do formulário
-    const nome = document.getElementById('sensor-nome').value;
-    const local = document.getElementById('sensor-local').value;
-    const tipo = document.getElementById('sensor-tipo').value;
-    const intervalo = document.getElementById('sensor-intervalo').value;
-    
-    // Validar dados (validação básica)
-    if (!nome || !local || !tipo) {
-        showNotification('Por favor, preencha todos os campos obrigatórios.', 'error');
-        return;
-    }
-    
-    // Verificar se o nome do sensor já existe
-    const sensorNames = Array.from(document.querySelectorAll('.sensor-name')).map(el => el.textContent);
-    if (sensorNames.includes(nome)) {
-        showNotification('Um sensor com este nome já existe.', 'error');
-        return;
-    }
-    
-    // Adicionar novo sensor à lista
-    const sensorList = document.querySelector('.sensor-list');
-    const newSensor = document.createElement('li');
-    newSensor.innerHTML = `<span class="sensor-name">${nome}</span><span class="sensor-status active">Ativo</span>`;
-    newSensor.style.cursor = 'pointer';
-    sensorList.appendChild(newSensor);
-    
-    // Adicionar evento de clique ao novo sensor
-    newSensor.addEventListener('click', function() {
-        openSensorPopup(nome);
+    // Abrir modal
+    addSensorBtn.addEventListener('click', function () {
+        addSensorModal.style.display = 'block';
     });
-    
-    // Adicionar aos dados simulados
-    sensoresData[nome] = {
-        umidade: `${Math.floor(25 + Math.random() * 10)}%`, 
-        bateria: '100%',
-        status: 'Ativo',
-        historico: Array.from({length: 12}, () => Math.floor(25 + Math.random() * 10)),
-        local: local,
-        tipo: tipo,
-        intervalo: intervalo
-    };
-    
-    // Atualizar contador de sensores
-    sensorCounter++;
-    
-    // Atualizar o KPI de sensores em funcionamento
-    const sensorKPI = document.querySelector('.KPIs .card:nth-child(3) .titulo');
-    sensorKPI.textContent = `${sensorCounter}/${sensorCounter}`;
-    
-    // Exibir notificação de sucesso
-    showNotification(`Sensor "${nome}" adicionado com sucesso!`);
-    
-    // Fechar o modal
-    closeAddSensorModal();
-});
+
+    // Fechar modal (X ou Cancelar)
+    function closeAddSensorModal() {
+        addSensorModal.style.display = 'none';
+        addSensorForm.reset();
+    }
+
+    closeModal.addEventListener('click', closeAddSensorModal);
+    cancelBtn.addEventListener('click', closeAddSensorModal);
+
+    // Fechar se clicar fora do modal
+    window.addEventListener('click', function (event) {
+        if (event.target === addSensorModal) {
+            closeAddSensorModal();
+        }
+    });
+
+    // Processar o formulário
+    addSensorForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // Obter valores do formulário
+        const nome = document.getElementById('sensor-nome').value;
+        const local = document.getElementById('sensor-local').value;
+        const tipo = document.getElementById('sensor-tipo').value;
+        const intervalo = document.getElementById('sensor-intervalo').value;
+
+        // Validar dados (validação básica)
+        if (!nome || !local || !tipo) {
+            showNotification('Por favor, preencha todos os campos obrigatórios.', 'error');
+            return;
+        }
+
+        // Verificar se o nome do sensor já existe
+        const sensorNames = Array.from(document.querySelectorAll('.sensor-name')).map(el => el.textContent);
+        if (sensorNames.includes(nome)) {
+            showNotification('Um sensor com este nome já existe.', 'error');
+            return;
+        }
+
+        // Adicionar novo sensor à lista
+        const sensorList = document.querySelector('.sensor-list');
+        const newSensor = document.createElement('li');
+        newSensor.innerHTML = `<span class="sensor-name">${nome}</span><span class="sensor-status active">Ativo</span>`;
+        newSensor.style.cursor = 'pointer';
+        sensorList.appendChild(newSensor);
+
+        // Adicionar evento de clique ao novo sensor
+        newSensor.addEventListener('click', function () {
+            openSensorPopup(nome);
+        });
+
+        // Adicionar aos dados simulados
+        sensoresData[nome] = {
+            umidade: `${Math.floor(25 + Math.random() * 10)}%`,
+            bateria: '100%',
+            status: 'Ativo',
+            historico: Array.from({ length: 12 }, () => Math.floor(25 + Math.random() * 10)),
+            local: local,
+            tipo: tipo,
+            intervalo: intervalo
+        };
+
+        // Atualizar contador de sensores
+        sensorCounter++;
+
+        // Atualizar o KPI de sensores em funcionamento
+        const sensorKPI = document.querySelector('.KPIs .card:nth-child(3) .titulo');
+        sensorKPI.textContent = `${sensorCounter}/${sensorCounter}`;
+
+        // Exibir notificação de sucesso
+        showNotification(`Sensor "${nome}" adicionado com sucesso!`);
+
+        // Fechar o modal
+        closeAddSensorModal();
+    });
 </script>
+
 </html>

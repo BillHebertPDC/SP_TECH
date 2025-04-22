@@ -1,0 +1,58 @@
+.sidebar {
+    background-color: #1a1a1a;
+    width: 100px;
+    transition: width 0.3s ease;
+    position: relative;
+}
+
+.side_ativado {
+    width: 250px;
+}
+
+.menu {
+    list-style-type: none;
+    padding: 20px 0;
+    margin: 0;
+}
+
+.menu li {
+    padding: 15px 20px;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.menu li:hover {
+    background-color: #2a2a2a;
+    color: #00a8ff;
+}
+
+.menu li.active {
+    background-color: #2a2a2a;
+    color: #00a8ff;
+    border-left: 4px solid #00a8ff;
+}
+
+.menu li i {
+    font-size: 18px;
+    width: 30px;
+    text-align: center;
+    margin-right: 15px;
+}
+
+.toggle-sidebar {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #2a2a2a;
+    color: #00a8ff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

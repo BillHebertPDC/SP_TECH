@@ -1,0 +1,87 @@
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    body {
+        background-color: #0a0a0a;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    .i_header {
+        background: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .i_header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+    }
+
+    .logo h1 {
+        color: #00a8ff;
+        font-weight: 700;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+    }
+
+    nav input {
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px 0 0 4px;
+        outline: none;
+    }
+
+    .search-btn {
+        background: #00a8ff;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+    }
+
+    .div_perfil {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .profile-pic {
+        font-size: 32px;
+        color: #00a8ff;
+    }
+</style>
+<header class="i_header">
+    <div class="container">
+        <div class="logo">
+            <h1>UMIDO</h1>
+        </div>
+
+        <nav>
+            <input type="text" placeholder="Buscar...">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+        </nav>
+
+        <div class="div_perfil">
+            <div>
+                <h4>João Silva</h4>
+                <h5>Administrador</h5>
+            </div>
+            <div class="profile-pic">
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </div>
+    </div>
+</header>

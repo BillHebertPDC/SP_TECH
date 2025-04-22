@@ -1,106 +1,507 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet"  href="./assets/css/inicio.css" ></link>
-
+    <title>Umido</title>
 </head>
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+    list-style: none;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    margin: 0px;
+}
+
+.i_header {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 1);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding: 15px 0;
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 1200px) 1fr;
+    height: 50px;
+}
+
+.i_header .logo {
+    background-image: url("../imgs/Log.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100px;
+}
+
+.i_header .container {
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+}
+
+#btn_login {
+    background-color: rgba(0, 248, 0, 0.5);
+    border-radius: 5px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+nav a {
+    width: 100px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.i_section {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 1200px) 1fr;
+}
+
+.layout_inicio {
+    height: 100%;
+    grid-column: 2;
+    display: grid;
+    grid-template-rows: 70vh 1.3fr 1fr 350px 1fr;
+    gap: 20px;
+    padding: 20px 20px;
+    justify-items: center;
+}
+
+.layout_inicio .problema {
+    display: grid;
+    grid-template-rows: 250px 1fr;
+    border-radius: 5px;
+    width: 100%;
+    gap: 30px;
+}
+
+.problema .card {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: 0 0 0 0 rgb(255, 255, 255);
+}
+
+.problema .card .div_problema .card {
+    background-color: rgba(255, 255, 255, 0.945);
+    box-shadow: 0 0 10px 5px rgb(151 151 1);
+}
+
+.problema .card .titulo {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-weight: 900;
+    font-size: 60px;
+}
+
+#titulo_problema {
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgb(151 151 1 / 50%);
+}
+
+#titulo_diferenciais {
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgb(0 87 7 / 50%);
+}
+
+.problema .div_problema {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+}
+
+.div_problema .card {
+    display: grid;
+    grid-template-rows: 80px 30px 1fr;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.div_problema .card .img {
+    height: 50px;
+}
+
+.div_problema .card .titulo {
+    color: rgb(0 86 7);
+    font-size: 30px;
+    background-color: transparent;
+    box-shadow: 0 0 0 0;
+    font-weight: 900;
+}
+
+.div_problema .card .legenda {
+    padding: 10px;
+    font-weight: 500;
+}
+
+.div_problema2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    height: 450px;
+}
+
+.div_problema2 .card {
+    background-color: rgb(255, 255, 255);
+    display: grid;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-template-rows: 80px 1fr;
+    box-shadow: 0 0 10px 5px rgb(151 151 1);
+}
+
+.div_problema2 .card .titulo {
+    color: rgb(0 86 7);
+    background-color: rgba(0, 0, 0, 0);
+    align-content: center;
+    font-size: 30px;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 0 0 0;
+}
+
+.div_problema2 .card .list {
+    padding: 30px;
+    font-size: 20px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.layout_inicio #banner {
+    display: grid;
+    grid-template-rows: 1fr 50px 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+#banner {
+    background-image: url("../imgs/status.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#banner .titulo {
+    text-align: center;
+    font-size: 54px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+#banner .sub_titulo {
+    text-align: center;
+    font-size: 20px;
+    color: #ffffff;
+    width: 90%;
+}
+
+#banner .btn_comum {
+    height: 60px;
+}
+
+#banner .conhecer {
+    color: #ffffff;
+    font-weight: 400;
+    background-color: rgb(0 86 7);
+    border-radius: 5px;
+    width: 300px;
+}
+
+#banner .contato {
+    color: #ffffff;
+    font-weight: 400;
+    background-color: rgb(120, 122, 0);
+    border-radius: 5px;
+    width: 300px;
+}
+
+video#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgb(0, 0, 0);
+}
+
+.solucao {
+    width: 100%;
+    height: 100%;
+}
+
+.div_solucao {
+    height: 100%;
+    box-shadow: 0 0 10px 5px rgb(0 87 7);
+}
+
+.div_solucao .titulo {
+    padding: 30px;
+    font-size: 60px;
+}
+
+.div_solucao .texto {
+    padding: 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.diferenciais {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    gap: 20px;
+}
+
+.diferenciais .titulo {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-weight: 900;
+    font-size: 60px;
+}
+
+.div_diferenciais {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+}
+
+.div_diferenciais .card {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    height: auto;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 200px;
+    grid-auto-rows: 80px 30px 1fr;
+    box-shadow: 0 0 10px 5px rgb(0 87 7);
+}
+
+.div_diferenciais .card .img {
+    height: 50px;
+}
+
+.div_diferenciais .card .titulo {
+    font-size: 20px;
+}
+
+.back_popup {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+}
+
+.ativado {
+    display: block;
+    animation: cima_baixo 0.5s ease-out forwards;
+}
+
+.desativado {
+    display: none;
+}
+
+@keyframes cima_baixo {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.popup {
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+    grid-template-rows: 100px 1fr 100px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+}
+
+.popup .container {
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    justify-items: center;
+    align-items: center;
+}
+
+.popup .container button {
+    grid-column: 2;
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    background-color: rgb(0 248 0 / 0%);
+    color: #000000;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.popup .card {
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.form_login {
+    grid-column: 2;
+    grid-row: 1;
+    display: grid;
+    grid-template-rows: 80px 1fr 100px;
+}
+
+.form_cadastro {
+    grid-column: 1;
+    grid-row: 1;
+    display: grid;
+    grid-template-rows: 80px 1fr 100px;
+    color: white;
+}
+
+.formulario {
+    display: grid;
+    grid-template-rows: 80px 1fr 100px;
+    grid-template-columns: 80px 1fr 80px;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+</style>
+
 <body>
-    <div class="back_popup desativado" id="f_popup">
-        <div class="popup">
-            <header class="container">
-                <button onclick="logar()">X</button>
-            </header>
-            <div class="card">
-                <div class="form_login">
-                    <div class="formulario" style="grid-row: 2;">
-                        <div style="grid-column: 2; grid-row: 1; font-size: 40PX; font-weight: 800;">SEJÁ BEM VINDO</div>
-                        <div style="grid-column: 2;grid-row: 2;width: 100%;height: 100%;">
-                            <div>EMAIL</div>
-                            <input></input>
-                            <div>SENHA</div>
-                            <input></input>
-                            <div>CADASTRA - SE</div>
+    <div class="login">
+        <div class="back_popup desativado" id="f_popup">
+            <div class="popup">
+                <header class="container">
+                    <button onclick="logar()">X</button>
+                </header>
+                <div class="card">
+                    <div class="form_login">
+                        <div class="formulario" style="grid-row: 2;">
+                            <div style="grid-column: 2; grid-row: 1; font-size: 40PX; font-weight: 800;">SEJA BEM-VINDO
+                            </div>
+                            <div style="grid-column: 2;grid-row: 2;width: 100%;height: 100%;">
+                                <div>E-MAIL</div>
+                                <input></input>
+                                <div>SENHA</div>
+                                <input></input>
+                                <div>CADASTRE-SE</div>
+                            </div>
+                            <button style="grid-column: 2; grid-row: 3; height: 50px; width: 80%;">ACESSAR</button>
                         </div>
-                        <button  style="grid-column: 2; grid-row: 3; height: 50px; width: 80%;">ACESSAR</button>
                     </div>
-                </div>
-                <div class="form_cadastro">
-                    <div class="formulario" style="grid-row: 2;">
-                        <div style="grid-column: 2; grid-row: 1; font-size: 40PX; font-weight: 800;">SEJÁ BEM VINDO</div>
-                        <div style="grid-column: 2;grid-row: 2;width: 100%;height: 100%;">
-                            <div>EMAIL</div>
-                            <input></input>
-                            <div>SENHA</div>
-                            <input></input>
+                    <div class="form_cadastro">
+                        <div class="formulario" style="grid-row: 2;">
+                            <div style="grid-column: 2; grid-row: 1; font-size: 40PX; font-weight: 800;">SEJA BEM-VINDO
+                            </div>
+                            <div style="grid-column: 2;grid-row: 2;width: 100%;height: 100%;">
+                                <div>E-MAIL</div>
+                                <input></input>
+                                <div>SENHA</div>
+                                <input></input>
+                            </div>
+                            <button style="grid-column: 2; grid-row: 3; height: 50px; width: 80%;">CADASTRAR</button>
                         </div>
-                        <button  style="grid-column: 2; grid-row: 3; height: 50px; width: 80%;">CADASTRAR</button>
                     </div>
+                    <div id="form_barreira"
+                        style="grid-column: 1; grid-row: 1; background-color: aliceblue; border-radius: 10px;"></div>
                 </div>
-                <div id="form_barreira" style="grid-column: 1; grid-row: 1; background-color: aliceblue; border-radius: 10px;"></div>
             </div>
         </div>
-    </div>
-    <div>
-        <video id="bg-video" muted playsinline preload="auto">
-            <source src="./assets/video/video.mp4" type="video/mp4" />
-          </video>
-        <header class="i_header">
-            <div class="container">
-                <div class="logo">
-                </div>
-                <nav>
-                    <a href="#banner">Inicio</a>
-                    <a href="#problem">Problema</a>
-                    <a href="#solucao">Solução</a>
-                    <a href="#diferenciais">Diferenciais</a>
-                    <a href="#Calculadora">Calculadora</a>
-                </nav>
-                <button id="btn_login" onclick="logar()">Login</button>
-            </div>
-        </header>
-        <section class="i_section">
-            <div class="layout_inicio">
-                <div class="card" id="banner">
-                    <div class="titulo">PREVENÇÃO DE QUEIMADAS POR MONITORAMENTO DE UMIDADE</div>
-                    <div class="sub_titulo">Uma solução tecnológica avançada que reduz em até 30% a incidência de queimadas em áreas agrícolas através do monitoramento inteligente da umidade do solo</div>
-                    <div>
-                        <button class="btn_comum conhecer">CONHEÇA NOSSA TECNOLOGIA</button>
-                        <button class="btn_comum contato">ENTRE EM CONTATO</button>
+        <div>
+            <video id="bg-video" muted autoplay loop>
+                <source src="./assets/video/video.mp4" type="video/mp4" />
+            </video>
+            <header class="i_header">
+                <div class="container">
+                    <div class="logo">
                     </div>
+                    <nav>
+                        <a href="#banner">Início</a>
+                        <a href="#problem">Problema</a>
+                        <a href="#solucao">Solução</a>
+                        <a href="#diferenciais">Diferenciais</a>
+                        <a href="#Calculadora">Calculadora</a>
+                    </nav>
+                    <button id="btn_login" onclick="logar()">Entrar</button>
                 </div>
-                <div class="problema" id="problem">
-                    <div class="card">
-                        <div class="titulo" id="titulo_problema">O PROBLEMA DAS QUEIMADAS</div>
-                        <div class="div_problema">
-                            <div class="card">
-                                <img src="./assets/icons/grafico.png" class="img" >
-                                <div class="titulo">R$ 14 bilhões</div>
-                                <div class="legenda">Prejuízo anual por queimadas</div>
-                            </div>
-                            <div class="card">
-                                <img src="./assets/icons/fogo.png" class="img" >
-                                <div class="titulo">222 mil</div>
-                                <div class="legenda">queimadas no Brasil</div>
-                            </div>
-                            <div class="card">
-                                <img src="./assets/icons/dolar.png" class="img" >
-                                <div class="titulo">2,8 milhões</div>
-                                <div class="legenda">Hectares devastados pelo fogo</div>
-                            </div>
-                            <div class="card">
-                                <img src="./assets/icons/porcentagem.png" class="img" >
-                                <div class="titulo">2% do PIB</div>
-                                <div class="legenda">Impacto das queimadas</div>
-                            </div>
+            </header>
+            <section class="i_section">
+                <div class="layout_inicio">
+                    <div class="card" id="banner">
+                        <div class="titulo">PREVENÇÃO DE QUEIMADAS POR MONITORAMENTO DE UMIDADE</div>
+                        <div class="sub_titulo">Uma solução tecnológica avançada que reduz em até 30% a incidência de
+                            queimadas em áreas agrícolas através do monitoramento inteligente da umidade do solo</div>
+                        <div>
+                            <button class="btn_comum conhecer">CONHEÇA NOSSA TECNOLOGIA</button>
+                            <button class="btn_comum contato">ENTRE EM CONTATO</button>
                         </div>
                     </div>
-                    <div class="div_problema2">
+                    <div class="problema" id="problem">
                         <div class="card">
-                            <div class="titulo">Impactos Econômicos</div>
-                            <div class="list">                                
+                            <div class="titulo" id="titulo_problema">O PROBLEMA DAS QUEIMADAS</div>
+                            <div class="div_problema">
+                                <div class="card">
+                                    <img src="./assets/icons/grafico.png" class="img">
+                                    <div class="titulo">R$ 14 bilhões</div>
+                                    <div class="legenda">Prejuízo anual por queimadas</div>
+                                </div>
+                                <div class="card">
+                                    <img src="./assets/icons/fogo.png" class="img">
+                                    <div class="titulo">222 mil</div>
+                                    <div class="legenda">queimadas no Brasil</div>
+                                </div>
+                                <div class="card">
+                                    <img src="./assets/icons/dolar.png" class="img">
+                                    <div class="titulo">2,8 milhões</div>
+                                    <div class="legenda">Hectares devastados pelo fogo</div>
+                                </div>
+                                <div class="card">
+                                    <img src="./assets/icons/porcentagem.png" class="img">
+                                    <div class="titulo">2% do PIB</div>
+                                    <div class="legenda">Impacto das queimadas</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="div_problema2">
+                            <div class="card">
+                                <div class="titulo">Impactos Econômicos</div>
+                                <div class="list">
                                     <li>
                                         Aumento dos custos na produção
                                     </li>
@@ -111,16 +512,16 @@
                                         Aumento nos preços de +7,69%
                                     </li>
                                     <li>
-                                        Redução do solo de reter umidade
+                                        Redução da capacidade do solo em reter umidade
                                     </li>
                                     <li>
                                         Elevação dos custos
                                     </li>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card">
-                            <div class="titulo">Impactos Ambientais</div>
-                            <div class="list">                                
+                            <div class="card">
+                                <div class="titulo">Impactos Ambientais</div>
+                                <div class="list">
                                     <li>
                                         Degradação do solo e da fertilidade
                                     </li>
@@ -139,11 +540,11 @@
                                     <li>
                                         Aumento constante de incêndios
                                     </li>
+                                </div>
                             </div>
-                        </div>
-                        <div class="card">
-                            <div class="titulo">Impactos Sociais</div>
-                            <div class="list">                                
+                            <div class="card">
+                                <div class="titulo">Impactos Sociais</div>
+                                <div class="list">
                                     <li>
                                         Falha na segurança alimentar
                                     </li>
@@ -159,135 +560,139 @@
                                     <li>
                                         Impacto na estrutura do solo
                                     </li>
-                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="solucao" id="solucao">
-                    <div class="div_solucao card">
-                        <div class="titulo">Nossa Solução</div>
-                        <div class="texto">O projeto UMIDO implementa uma solução tecnológica para monitoramento e controle da umidade em plantações agrícolas.
-                            <img src="./assets/imgs/diagrama.jpg" style="width: 100%;">
-                            O sistema funciona através de uma rede de sensores distribuídos estrategicamente nas áreas de plantio, que coletam dados em tempo real sobre os níveis de umidade do solo.
-                        </div>
-                    </div>
-                </div>
-                <div class="diferenciais" id="diferenciais">
-                    <div class="titulo" id="titulo_diferenciais">DIFERENCIAIS</div>
-                    <div class="div_diferenciais">
-                        <div class="card">
-                            <img src="./assets/icons/grafico.png" class="img">
-                            <div class="titulo">Dashboard</div>
-                            <div>Dashboard para melhor analise e tomada de decisão</div>
-                        </div>
-                        <div class="card">
-                            <img src="./assets/icons/alert.png" class="img">
-                            <div class="titulo">Alertas me tempo real</div>
-                            <div>Alertas caso ocorra algum possivel incidente</div>
-                        </div>
-                        <div class="card">
-                            <img src="./assets/icons/monitoramento.png" class="img">
-                            <div class="titulo">Monitore em tempo real</div>
-                            <div>Monitore sua platação em tempo real </div>
-                        </div>
-                        <div class="card">
-                            <img src="./assets/icons/exportar.png" class="img">
-                            <div class="titulo">Exportar dados</div>
-                            <div>Exporte os dados da sua platação</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="tela-simulador">
-                        <div id="simulador" class="simulador ">
-                            <h1 id="simulador_id" class="simulador-title">Simulador Financeiro</h1>
-                
-                            <!-- INPUTS -->
-                
-                            <div class="simulador-ipt" id="simulador_input">
-                                <input class="simulador-caixa" id='ipt_tamanho'
-                                    placeholder="Insira a quantidade de hectares da sua plantação">
-                                <input class="simulador-caixa" id='ipt_tipo' placeholder="Insira o tipo da plantação">
-                                <input class="simulador-caixa" id='ipt_preco'
-                                    placeholder="Insira o preço da sua produção média por hectares">
-                                <button class="simulador-calcular" onclick="calcular()">CALCULAR<i class="fas fa-caret-right"
-                                        style="font-size: px;"></i></button>
-                
-                            </div>
-                
-                            <div id="simulador_output" class="simulador-resultado tela-inativa">
-                                <div class="resultado-container">
-                                    <div class="resultado-texto">
-                                        <span>Valor total da plantação:</span>
-                                        <span>Valor economizado com a prevenção:</span>
-                                        <span>Valor economizado com impostos</span>
-                                        <span>Economia total:</span>
-                                        <span>Projeção de lucro de preços com certificação:</span>
-                                        <span>O preço médio da venda de dados pode ser de até:</span>
-                                    </div>
-                                    <div class="resultado-valor">
-                                        <div>R$<span id="print_resultado_valor">1000</span></div>
-                                        <div>R$ <span id="print_resultado_prevencao" class="valor-lucro">22</span></div>
-                                        <div>R$ <span id="print_resultado_isencao" class="valor-lucro">100</span></div>
-                                        <div>R$ <span id="print_resultado_total" class="valor-lucro">10011111</span></div>
-                                        <div>R$ <span id="print_resultado_certificacao" class="valor-lucro">1111</span></div>
-                                        <div>R$ <span id="print_resultado_venda" class="valor-lucro">1111</span></div>
-                
-                
-                
-                
-                                    </div>
                                 </div>
-                
-                
-                                <div class="resultado-botao">Entre em contato conosco</div>
                             </div>
-                
-                
+                        </div>
+                    </div>
+                    <div class="solucao" id="solucao">
+                        <div class="div_solucao card">
+                            <div class="titulo">Nossa Solução</div>
+                            <div class="texto">O projeto UMIDO implementa uma solução tecnológica para monitoramento e
+                                controle da umidade em plantações agrícolas.
+                                <img src="./assets/imgs/diagrama.jpg" style="width: 100%;">
+                                O sistema funciona através de uma rede de sensores distribuídos estrategicamente nas
+                                áreas de plantio, que coletam dados em tempo real sobre os níveis de umidade do solo.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="diferenciais" id="diferenciais">
+                        <div class="titulo" id="titulo_diferenciais">DIFERENCIAIS</div>
+                        <div class="div_diferenciais">
+                            <div class="card">
+                                <img src="./assets/icons/grafico.png" class="img">
+                                <div class="titulo">Painel de Controle</div>
+                                <div>Painel para melhor análise e tomada de decisão</div>
+                            </div>
+                            <div class="card">
+                                <img src="./assets/icons/alert.png" class="img">
+                                <div class="titulo">Alertas em tempo real</div>
+                                <div>Alertas caso ocorra algum possível incidente</div>
+                            </div>
+                            <div class="card">
+                                <img src="./assets/icons/monitoramento.png" class="img">
+                                <div class="titulo">Monitore em tempo real</div>
+                                <div>Monitore sua plantação em tempo real</div>
+                            </div>
+                            <div class="card">
+                                <img src="./assets/icons/exportar.png" class="img">
+                                <div class="titulo">Exportar dados</div>
+                                <div>Exporte os dados da sua plantação</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="tela-simulador">
+                            <div id="simulador" class="simulador ">
+                                <h1 id="simulador_id" class="simulador-title">Simulador Financeiro</h1>
+
+                                <!-- INPUTS -->
+
+                                <div class="simulador-ipt" id="simulador_input">
+                                    <input class="simulador-caixa" id='ipt_tamanho'
+                                        placeholder="Insira a quantidade de hectares da sua plantação">
+                                    <input class="simulador-caixa" id='ipt_tipo'
+                                        placeholder="Insira o tipo da plantação">
+                                    <input class="simulador-caixa" id='ipt_preco'
+                                        placeholder="Insira o preço da sua produção média por hectares">
+                                    <button class="simulador-calcular" onclick="calcular()">CALCULAR<i
+                                            class="fas fa-caret-right" style="font-size: px;"></i></button>
+
+                                </div>
+
+                                <div id="simulador_output" class="simulador-resultado tela-inativa">
+                                    <div class="resultado-container">
+                                        <div class="resultado-texto">
+                                            <span>Valor total da plantação:</span>
+                                            <span>Valor economizado com a prevenção:</span>
+                                            <span>Valor economizado com impostos:</span>
+                                            <span>Economia total:</span>
+                                            <span>Projeção de lucro de preços com certificação:</span>
+                                            <span>O preço médio da venda de dados pode ser de até:</span>
+                                        </div>
+                                        <div class="resultado-valor">
+                                            <div>R$<span id="print_resultado_valor">1000</span></div>
+                                            <div>R$ <span id="print_resultado_prevencao" class="valor-lucro">22</span>
+                                            </div>
+                                            <div>R$ <span id="print_resultado_isencao" class="valor-lucro">100</span>
+                                            </div>
+                                            <div>R$ <span id="print_resultado_total" class="valor-lucro">10011111</span>
+                                            </div>
+                                            <div>R$ <span id="print_resultado_certificacao"
+                                                    class="valor-lucro">1111</span></div>
+                                            <div>R$ <span id="print_resultado_venda" class="valor-lucro">1111</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="resultado-botao">Entre em contato conosco</div>
+                                </div>
+
+
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <footer>
-            <div class="logo-footer"></div>
-            <div class="footer-info footer-contato">
-                <h2>Nossos contatos</h2>
-                <p>umido.contato@sptech.school</p>
-            </div>
-            <div class="footer-info footer-sobre-nos">
-                <h2>Sobre nós</h2>
-            </div>
-            <div class="footer-mensagem">
-                <p>Obrigado por acessar!</p>
-                <p>&copy;UMIDO 2025</p>
-            </div>
-        </footer>  
+            </section>
+            <footer>
+                <div class="logo-footer"></div>
+                <div class="footer-info footer-contato">
+                    <h2>Nossos contatos</h2>
+                    <p>umido.contato@sptech.school</p>
+                </div>
+                <div class="footer-info footer-sobre-nos">
+                    <h2>Sobre nós</h2>
+                </div>
+                <div class="footer-mensagem">
+                    <p>Obrigado por acessar!</p>
+                    <p>&copy;UMIDO 2025</p>
+                </div>
+            </footer>
+        </div>
     </div>
-
 </body>
 <script>
-
-    const video = document.getElementById('bg-video');
-    function updateVideoFrame() {
-      const scrollTop = window.scrollY;
-      const maxScroll = document.body.scrollHeight - window.innerHeight;
-      const scrollFraction = 1 - (scrollTop / maxScroll);
-      const targetTime = scrollFraction * 3;
-      video.currentTime += (targetTime - video.currentTime) * 0.1;
-      requestAnimationFrame(updateVideoFrame);
-    }
-    requestAnimationFrame(updateVideoFrame);
-    function logar(){
-        if(f_popup.classList.value.split(" ").includes("desativado")){
+    function logar() {
+        if (f_popup.classList.value.split(" ").includes("desativado")) {
             f_popup.classList.remove("desativado")
             f_popup.classList.add("ativado")
-        }else{
+        } else {
             f_popup.classList.remove("ativado")
             f_popup.classList.add("desativado")
-            
+
         }
+
+    }
+
+    function calcular() {
+        // Aqui você pode adicionar a função de cálculo para o simulador financeiro
+        const simuladorInput = document.getElementById('simulador_input');
+        const simuladorOutput = document.getElementById('simulador_output');
         
+        // Exibir os resultados
+        simuladorInput.style.display = 'none';
+        simuladorOutput.classList.remove('tela-inativa');
     }
 </script>
+
 </html>
