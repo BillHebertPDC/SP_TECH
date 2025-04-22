@@ -137,6 +137,7 @@
         padding: 20px;
         overflow: auto;
     }
+    
 
     .cartao {
         background: white;
@@ -190,7 +191,10 @@
     }
 
     .container_grafico {
-        height: 250px;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 
     .botao_adicionar {
@@ -237,11 +241,18 @@
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         width: 100%;
+        height: 100%;
+        gap: 20px;
     }
 
+    .container_grafico_mensal {
+        width: 100%;
+        height: 100%;
+        
+    }
     .container_grafico_mensal .cartao {
-        height: 350px;
-        width: 350px;
+        width: 100%;
+        height: 100%;
         background-color: white;
     }
 
@@ -404,8 +415,7 @@
                 </div>
                 <div class="cartao">
                     <div class="titulo_sensores">Lista de sensores
-                        <button id="botao_adicionar_sensor" onclick="mostrarModal()" class="botao_adicionar">Novo
-                            Sensor</button>
+                        <button id="botao_adicionar_sensor" onclick="mostrarModal()" class="botao_adicionar">Novo Sensor</button>
                     </div>
                     <div class="lista_botoes">
                         <ul class="lista_sensores" id="lista_sensores"></ul>
@@ -413,7 +423,7 @@
                 </div>
             </div>
 
-            <div>
+            <div style="width: 100%; height: 100%; display: grid ; grid-template-rows: 20px 1fr;">
                 <div class="titulo_grafico">ESTATÍSTICAS DO MÊS</div>
                 <div class="graficos_mensais" id="graficos_mensais"></div>
             </div>
@@ -491,10 +501,10 @@
     let graficoUmidade = new Chart(contexto, {
         type: "line",
         data: {
-            labels: ["Janeiro", "Fevereiro", "Março", "Abril"],
+            labels: ["Novembro","Dezembro","Janeiro", "Fevereiro", "Março", "Abril"],
             datasets: [{
                 label: "Umidade (%)",
-                data: [85, 72, 65, 78],
+                data: [65,60,85, 72, 65, 78],
                 backgroundColor: 'rgba(0, 168, 255, 0.2)',
                 borderColor: 'rgba(0, 168, 255, 1)',
                 borderWidth: 2,
@@ -532,9 +542,9 @@
     }
 
     let dadosGraficos = [
-        ["grafico_mensal", "Umidade", "Umidade (%)", "bar", ["Semana 1", "Semana 2", "Semana 3", "Semana 4"], [85, 72, 65, 78]],
-        ["grafico_incidentes", "Incidentes por Área", "Incidentes", "pie", ["Área A", "Área B", "Área C", "Área D"], [1, 2, 0, 1]],
-        ["grafico_desempenho", "Desempenho do Sistema", "Desempenho (%)", "radar", ["Precisão", "Resposta", "Tempo Ativo", "Conectividade", "Eficiência"], [95, 85, 99, 92, 88]]
+        ["grafico_mensal", "Umidade", "Umidade (%)", "bar", ["Semana 1", "Semana 2", "Semana 3", "Semana 4"], [85, 72, 65, 78],"lengenda1"],
+        ["grafico_incidentes", "Incidentes por Área", "Incidentes", "pie", ["Área A", "Área B", "Área C", "Área D"], [1, 2, 0, 1],"lengenda2"],
+        ["grafico_desempenho", "Desempenho do Sistema", "Desempenho (%)", "radar", ["Precisão", "Resposta", "Tempo Ativo", "Conectividade", "Eficiência"], [95, 85, 99, 92, 88],"lengenda3"]
     ];
 
     let elementoGraficosMensais = graficos_mensais;
@@ -543,8 +553,9 @@
         <div class="container_grafico_mensal">
             <div class="cartao">
                 <div class="titulo_grafico">${dadosGraficos[i][1]}</div>
+                <div class="titulo_grafico">${dadosGraficos[i][6]}</div>
                 <div class="container_grafico">
-                    <canvas id="${dadosGraficos[i][0]}"></canvas>
+                    <canvas id="${dadosGraficos[i][0]}" style="height: 50%; width: 100%;"></canvas>
                 </div>
             </div>
         </div>`;
