@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Filmes em Lista</title>
+</head>
+<body>
+    <input type="text" id="filmeInput" placeholder="Nome do filme">
+    <button onclick="cadastrarFilme()">Cadastrar</button>
+
+    <div id="lista"></div>
+
+    <script>
+        function cadastrarFilme() {
+            var filme = document.getElementById('filmeInput').value;
+            var lista = document.getElementById('lista');
+            lista.innerHTML += filme + '<br>';
+        }
+    </script>
+</body>
+</html>

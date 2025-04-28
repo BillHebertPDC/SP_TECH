@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Bairros</title>
+</head>
+<body>
+    <input type="text" id="bairroInput" placeholder="Nome do bairro">
+    <button onclick="cadastrarBairro()">Cadastrar bairro</button>
+    <input type="number" id="numeroInput" placeholder="Número da moradia">
+    <button onclick="relembrarMoradia()">Relembrar moradia</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        var bairros = [];
+
+        function cadastrarBairro() {
+            var bairro = document.getElementById('bairroInput').value;
+            bairros.push(bairro);
+        }
+
+        function relembrarMoradia() {
+            var numero = parseInt(document.getElementById('numeroInput').value);
+            var resultado = document.getElementById('resultado');
+
+            if (numero >= 1 && numero <= bairros.length) {
+                resultado.textContent = bairros[numero - 1];
+            } else {
+                resultado.textContent = `Você ainda não morou num ${numero}º bairro!`;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="fruta" placeholder="Fruta">
+    <button onclick="pesquisar()">Pesquisar</button>
+</body>
+<script>
+    let fruta_lista = ["maça","banana"]
+    function pesquisar(){
+        let fruta_escolhida =  fruta.value
+        let fruta_existe = false
+        for(let i=0; i<fruta_lista.length;i++ ){
+            if(fruta_lista[i] == fruta_escolhida){
+                fruta_existe =true
+            }
+        }
+        if(fruta_existe)
+            window.alert(`A fruta ${fruta_escolhida} existe na lista.`)
+        else
+            window.alert(`Não existe a fruta ${fruta_escolhida} na lista.`)
+    }
+</script>
+</html>
