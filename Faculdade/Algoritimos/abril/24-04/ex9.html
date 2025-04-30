@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt" placeholder="projeto">
+    <button onclick="adicionar()">Registrar projeto</button>
+    <button onclick="mostrar()">mostrar projetos</button>
+    <div id="resposta"></div>
+    <div id="mostrar_p"></div>
+
+</body>
+<script>
+    let projetos =[]
+    function adicionar() {
+        projetos.push(ipt.value)
+        let texto = ""
+        let exp=""
+        if(projetos.length> 0 && projetos.length <= 4){exp="junior"}
+        else if(projetos.length>= 5 && projetos.length <= 12){exp="pleno"}
+        else if(projetos.length>= 13){exp="sênior"}
+        resposta.innerHTML=`Você já fez ${projetos.length} projetos. Por isso você é um profissional ${exp}`
+    }
+    function mostrar() {
+        let projetos_r = projetos.reverse()
+        let texto =""
+        for(let i=0;i<projetos_r.length;i++){
+            texto += `${projetos_r[i]} <br>`
+        }
+        mostrar_p.innerHTML = texto
+    }
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="type" id="ipt"  placeholder="filhos">
+    <button onclick="Cadastrar()">Cadastrar</button>
+    <button onclick="Atualizar()">Atualizar Família</button>
+    <div id="resposta"></div>
+
+</body>
+<script>
+    let filhos =[]
+    function Cadastrar() {
+        if(!filhos.includes(ipt.value) ){
+            filhos.unshift(ipt.value)
+        }else{
+            alert("Não pode mais de 1 filho com o mesmo nome!")
+        }
+    }
+    function Atualizar(){
+        let texto =`Você tem ${filhos.length} filhos`
+        let preco_particular =filhos.length*3000
+        let preco_publicar =filhos.length*1500
+        resposta.innerHTML=`Você tem ${filhos.length} filhos<br> 
+        Seu custo mensal será aproximadamente R$${preco_particular} se colocá-los em escola particular ou R$${preco_publicar} se eles estudarem em escola pública  `
+    }
+</script>
+</html>

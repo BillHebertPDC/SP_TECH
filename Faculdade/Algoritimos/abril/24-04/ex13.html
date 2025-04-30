@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<select  id="select" placeholder ="Indique o resultado">
+    <option value="Vitória">Vitória </option>
+    <option value="Empate">Empate</option>
+    <option value="Derrota">Derrota</option>
+</select>
+<button onclick="Registrar()">Registrar jogo</button>
+<input type="text" id="digitado" oninput="digitando()">
+<div id="resposta"></div>
+</body>
+<script>
+    let v=0
+    let d=0
+    let e=0
+    let jogos =[]
+
+    function Registrar() {
+        if(select.value == "Vitória"){
+            v++
+            jogos.push("ganhou")
+        }
+        else if(select.value == "Derrota"){
+            d++
+            jogos.push("perdeu")
+        }
+        else if(select.value == "Empate"){
+            e++
+            jogos.push("empatou")
+        }
+        resposta.innerHTML=`
+        O time teve: ${v} vitórias, ${e} empates, ${d} derrotas  
+        Pontuação total: ${(v*3)+e} pontos  
+        Aproveitamento: ${((v*3)+e)/((v+d+e)*3)}%`
+    }
+    function digitando(){
+        resposta.innerHTML = `No ${digitado.value}º jogo, o time ${jogos[Number(digitado.value)]}  `
+    }
+
+</script>
+</html>

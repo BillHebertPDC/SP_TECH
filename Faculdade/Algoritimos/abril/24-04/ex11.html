@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="ipt"  placeholder="preco">
+    <button onclick="Cadastrar()">Atualizar Estoque</button>
+    <div id="resposta"></div>
+
+</body>
+<script>
+    let preco =[]
+    function Cadastrar() {
+        preco.unshift(Number(ipt.value))
+        let total =0
+        for(let i=0;i<preco.length;i++){
+            total += preco[i]
+        }
+        resposta.innerHTML = `
+        Você tem ${preco.length} produtos cadastrados em estoque  <br>
+        Seu estoque vale R$${total}
+        `
+    }
+</script>
+</html>

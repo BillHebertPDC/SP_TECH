@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt" placeholder="nome">
+    <button onclick="adicionar()">Gravar busão</button>
+    <div id="resposta"></div>
+
+    <input type="text" id="ipt_p" placeholder="pesquisa">
+    <button onclick="pesquisa()">pesquisa</button>
+    <div id="resposta2"></div>
+
+</body>
+<script>
+    let busao =[]
+    function adicionar() {
+        busao.unshift(ipt.value)
+        let texto =""
+        for(let i=0;i<busao.length;i++){
+            texto += `${busao[i]} <br>`
+        }
+        resposta.innerHTML = texto
+    }
+    function pesquisa(){
+        if(!busao.includes(ipt_p.value)){
+            resposta2.innerHTML = "Você nunca pegou essa linha"
+        }else{
+            let quantidade = 0
+            for(let i= 0;i<busao.length;i++ ){
+                if(busao[i] == ipt_p.value){quantidade++}
+            }
+            if([2,4,8,9].includes(quantidade)){
+                resposta2.innerHTML = `Você já pegou essa linha ${quantidade} vezes,`
+            }
+        }
+    }
+</script>
+</html>

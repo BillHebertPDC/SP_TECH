@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="numero" id="digitado">
+    <button onclick="Registrar()">Registrar numero</button>
+    <div id="resposta"></div>
+</body>
+<script>
+    let numeros ={}
+    function Registrar() {
+        numeros[digitado.value] ??= 0;
+        numeros[digitado.value]++;
+        let html =""
+        let maior = 0
+        let menor;
+        for(let numero in numeros){
+            if(numeros[numero] > maior){
+                maior = numeros[numero]
+            }
+            if(typeof(menor) =="undefined" ||numeros[numero] < menor){
+                menor = numeros[numero]
+            }
+            html += `${numero}º Número: ${numeros[numero]}<br>`
+        }
+        html+=`maior: ${maior}<br>menor: ${menor}`
+        resposta.innerHTML=html
+    }
+
+</script>
+</html>
