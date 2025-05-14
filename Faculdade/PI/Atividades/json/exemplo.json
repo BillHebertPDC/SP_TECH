@@ -1,0 +1,27 @@
+[
+    {
+        "email": "email1",
+        "senha": "123",
+        "nome": ""
+    },
+    {
+        "email": "email2",
+        "senha": "123",
+        "nome": ""
+    },
+    {
+        "email": "email3",
+        "senha": "123",
+        "nome": ""
+    },
+    {
+        "email": "email4",
+        "senha": "123",
+        "nome": ""
+    },
+    {
+        "email": "email5",
+        "senha": "123",
+        "nome": ""
+    }
+]

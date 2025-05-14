@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <Details>
+        <summary>Cadastrar Produto</summary>
+        <input type="text" placeholder="nome" id="cdt_nome_produto">
+        <input type="text" placeholder="codigo" id="cdt_codigo_produto">
+        <input type="number" placeholder="quantidade" id="cdt_quantidade_produto">
+        <button onclick="cadastrar()">Cadastrar Produto</button>
+    </Details>
+    <details>
+        <summary>Repor Estoque</summary>
+        <input type="text" placeholder="nome" id="rp_nome_produto">
+        <input type="number" placeholder="quantidade" id="rp_quantidade_produto">
+        <button onclick="repor()">Repor Estoque</button>
+    </details>
+    <details>
+        <summary>Vender Produto</summary>
+        <input type="text" placeholder="nome" id="vd_nome_produto">
+        <input type="number" placeholder="quantidade" id="vd_quantidade_produto">
+        <button onclick="vender()">Vender Produto</button>
+    </details>
+    <details>
+        <summary>Exibir Relatório</summary>
+        <button onclick="gerar_relatorio()">Exibir Relatório</button>
+        <div id="relatorio"></div>
+    </details>
+    
+</body>
+<script>
+    /*
+    banana:{
+        id:"",
+        quantidade:0
+    }
+    */
+    let produtos = {}
+    let codigos = {}
+    let historico = []
+    function cadastrar() {
+        let nome = cdt_nome_produto.value
+        let codigo = cdt_codigo_produto.value
+        let quantidade = Number(cdt_quantidade_produto.value)
+        if(nome !="" && !codigos[codigo] && quantidade !="" && quantidade >=10 ){
+            alert(`Produto ${nome} registrado com sucesso`)
+            produtos[nome] ??= {quantidade:0,codigo:"",venda:0}
+            codigos[codigo]=nome
+            produtos[nome].codigo = codigo
+            produtos[nome].quantidade += quantidade
+        }else{
+            alert(codigos[codigo] ? "Código de produto já existente":`Preencha todos os campos para registrar um novo produto`)
+        }
+    }
+    function validacao(nome,quantidade,venda=0){
+        let produto = produtos[nome]
+        if(produto){
+            if(quantidade > 0){
+                if(venda!=0){
+                    if((produto.quantidade - venda) >= 0 ){
+                        return true
+                    }else{
+                        alert(`Não tem no estoque o suficiente`)
+                        return false
+                    }
+                }
+                return true
+            }else{
+                alert(`Quantidade inválida`)
+            }
+        }else{
+            alert(`Produto não identificado`)
+        }
+        return false
+    }
+    function repor() {
+        let nome = rp_nome_produto.value
+        let quantidade = Number(rp_quantidade_produto.value)
+        let validar = validacao(nome,quantidade)
+        if(validar){
+            produtos[nome].quantidade += quantidade
+            historico.push(`Código: ${produtos[nome].codigo} | Produto: ${nome} | Quantidade em Estoque: ${produtos[nome].quantidade} ${produtos[nome].quantidade<10 ?("PRECISA REPOR"):("ESTOQUE OK")}`)
+            alert(`${quantidade}x do ${nome} foi reposto com sucesso
+            \n
+            Código: ${produtos[nome].codigo} | Produto: ${nome} | Quantidade em Estoque: ${produtos[nome].quantidade} ${produtos[nome].quantidade<10 ?("PRECISA REPOR"):("ESTOQUE OK")}`)
+        }
+    }
+    function vender(){
+        let nome = vd_nome_produto.value
+        let quantidade = Number(vd_quantidade_produto.value)
+        let validar = validacao(nome,1,quantidade)
+        if(validar){
+            produtos[nome].quantidade -= quantidade
+            produtos[nome].venda += quantidade
+            alert(`${quantidade}x do ${nome} foi vendido com sucesso\n
+            Código: ${produtos[nome].codigo} | Produto: ${nome} | Quantidade em Estoque: ${produtos[nome].quantidade} ${produtos[nome].quantidade<10 ?("PRECISA REPOR"):("ESTOQUE OK")}`)
+            if(produtos[nome].quantidade < 10){
+                historico.push(`Código: ${produtos[nome].codigo} | Produto: ${nome} | Quantidade em Estoque: ${produtos[nome].quantidade} ${produtos[nome].quantidade<10 ?("PRECISA REPOR"):("ESTOQUE OK")}`)
+                alert(`alerta para reposição urgente do produto ${nome}`)
+            }
+        }
+    }
+    function gerar_relatorio() {  
+        let texto = ""
+        let maior_estoque = 0
+        let menor_estoque =-1
+        let maior_venda = 0
+        let menor_venda = -1
+        let p_maior_estoque = ""
+        let p_menor_estoque =""
+        let p_maior_venda = ""
+        let p_menor_venda = ""
+        for(let i=0;i<historico.length;i++){
+            texto += `Registro ${i+1} -${historico[i]}<br>`
+        }
+        for(let produto in produtos){
+            if(produtos[produto].quantidade > maior_estoque){
+                maior_estoque=produtos[produto].quantidade
+                p_maior_estoque = produto
+            }
+            if(produtos[produto].quantidade < menor_estoque || menor_estoque ==-1){
+                menor_estoque = produtos[produto].quantidade
+                p_menor_estoque = produto
+            }
+            if(produtos[produto].venda > maior_venda){
+                maior_venda=produtos[produto].venda
+                p_maior_venda = produto
+            }
+            if(produtos[produto].venda < menor_venda || menor_venda == -1){
+                menor_venda=produtos[produto].venda
+                p_menor_venda = produto
+            }
+        }
+        texto +=`
+        Produto com maior quantidade em estoque :${p_maior_estoque} - ${maior_estoque}<br>
+        Produto com menor quantidade em estoque :${p_menor_estoque} - ${menor_estoque}<br>
+        Produto mais vendido  :${p_maior_venda} - ${maior_venda}<br>
+        Produto menos vendido  :${p_menor_venda} - ${menor_venda}<br>`
+
+        relatorio.innerHTML = texto
+    }
+</script>
+</html>
